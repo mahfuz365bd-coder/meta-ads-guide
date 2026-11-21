@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Facebook Ads গাইড – Campaign Level</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--tx:#1f2937;--mu:#6b7280;--bd:#e5e7eb;--ac:#4f46e5;--acbg:#eef0ff;--g:#e8f8ef;--gt:#15803d;--b:#e8f1ff;--bt:#1d4ed8;--y:#fff6dc;--yt:#a16207;--p:#fde8f1;--pt:#be185d;--rt:#b91c1c;--o:#f8f9fc;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1220;--card:#181c2e;--tx:#e5e7eb;--mu:#9ca3af;--bd:#2a3050;--ac:#a5b4fc;--acbg:#232850;--g:#12301f;--gt:#86efac;--b:#172a4d;--bt:#93c5fd;--y:#3a2f0d;--yt:#fcd34d;--p:#3d1730;--pt:#f9a8d4;--rt:#fca5a5;--o:#1f2440;color-scheme:dark}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Hind Siliguri",system-ui,sans-serif;line-height:1.7}
+.w{max-width:780px;margin:0 auto;padding:20px 14px 40px}
+h1{font-size:1.45rem;margin:6px 0 4px}.sub{color:var(--mu);margin:0 0 14px}
+.lv{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.lv span{padding:4px 12px;border-radius:99px;border:1px solid var(--bd);font-size:.85rem;color:var(--mu)}
+.lv span[data-t]{cursor:pointer}.lv .on{background:var(--ac);color:#fff;border-color:var(--ac)}
+details{background:var(--card);border:1px solid var(--bd);border-radius:10px;margin-bottom:10px}
+details[open]{border-color:var(--ac)}
+summary{cursor:pointer;list-style:none;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary small{display:block;font-weight:400;color:var(--mu);font-size:.85rem}
+summary:after{content:"▾";color:var(--mu);transition:transform .2s}
+details[open] summary{background:var(--acbg);border-radius:10px 10px 0 0}
+details[open] summary:after{transform:rotate(180deg)}
+.bd{padding:6px 16px 16px}
+.bx{border-radius:8px;padding:10px 14px;margin-top:12px}
+.bx h4{margin:0 0 4px;font-size:.9rem}.bx ul{margin:0;padding-left:20px}
+.a{background:var(--g)}.a h4{color:var(--gt)}.e{background:var(--b)}.e h4{color:var(--bt)}
+.x{background:var(--y)}.x h4{color:var(--yt)}.m{background:var(--p)}.m h4{color:var(--pt)}
+.r{background:var(--acbg);border:1px dashed var(--ac)}.r h4{color:var(--ac)}
+.os{display:grid;gap:8px;margin-top:8px}
+.o{background:var(--o);border:1px solid var(--bd);border-radius:8px;padding:8px 12px}
+.o h5{margin:0;font-size:.95rem}.o p{margin:2px 0;font-size:.9rem}
+.pr{color:var(--gt)}.cn{color:var(--rt)}
+b{color:var(--ac)}
+</style></head><body><div class="w">
+<h1>Facebook Ads গাইড</h1>
+<p class="sub">Ads Manager-এর প্রতিটি অপশন সহজ বাংলায়, কোনটা কখন বেছে নেবেন সুবিধা-অসুবিধাসহ। প্রশ্নে ক্লিক করলে উত্তর খুলবে।</p>
+<div class="lv"><span class="on" data-t="1">Campaign Level</span><span data-t="2">Ad Set Level</span><span data-t="3">Ad Level</span></div>
+<div id="list"></div></div>
+<script>
+// o: [নাম, কখন ব্যবহার করবেন, সুবিধা, অসুবিধা]
+const D=[
+{t:"Campaign name & Naming template",s:"ক্যাম্পেইনের নাম ও নামের টেমপ্লেট",
+a:"ক্যাম্পেইন চেনার জন্য দেওয়া নাম, শুধু আপনি দেখেন, গ্রাহক দেখে না। <b>Create template</b>-এ ক্লিক করলে একটি ডায়ালগ খোলে, যেখানে নিজের নিয়মে নামের কাঠামো বানানো যায়।",
+p:["ডায়ালগের বার্তা: নামকরণের নিয়ম মেনে টেমপ্লেট বানান, তাহলে ক্যাম্পেইন সেটিং বদলালে নামও নিজে থেকে আপডেট হবে।","<b>Add component</b> বাটনে ক্লিক করে টেমপ্লেটের অংশ যোগ করা হয়।","<b>Choose existing template</b>: আগে বানানো টেমপ্লেট বেছে নেওয়া। শেষে <b>Save</b> বা <b>Cancel</b>।","<b>Hide/Show options</b>: টেমপ্লেট অংশ লুকায় বা দেখায়।"],
+o:[["Campaign fields","যেসব তথ্য ক্যাম্পেইন সেটিং থেকে সরাসরি আসে। সাবমেনুতে আছে: <b>Advantage+ campaign budget</b>, <b>Objective</b>, <b>Campaign ID</b>।","সেটিং বদলালে নাম নিজে আপডেট হয়, ভুল কম, সব ক্যাম্পেইনের নাম একরকম।","নাম লম্বা হতে পারে। Campaign ID ক্যাম্পেইন তৈরির পরেই পাওয়া যায়।"],["Open text field","একটি ফাঁকা জায়গা, যেখানে নিজের মতো লেখা যায় (যেমন প্রোডাক্টের নাম, মাস)।","পূর্ণ স্বাধীনতা।","প্রতিবার হাতে লিখতে হয়, ভুল বা অমিল হওয়ার ঝুঁকি।"],["Custom field","নিজের বিজ্ঞাপন সম্পর্কে অনন্য তথ্য যোগ করার ক্ষেত্র।","নিজের ব্যবসার বিশেষ ট্যাগ সব নামে বসানো যায়।","আগে নিজে সেট করতে হয়, নতুনদের জন্য একটু জটিল।"]],
+r:"শুরুতে <b>Objective</b> (Campaign fields থেকে) + একটি <b>Open text field</b> (প্রোডাক্ট বা অফারের নামের জন্য) দিয়ে টেমপ্লেট বানান। সহজ, আবার পরিষ্কার।",
+e:"Traffic | EidSale | 2026 — তিনটি অংশ: Objective, Open text, Open text।",m:"আগে নিয়ম ঠিক করলে ১০০টি ক্যাম্পেইন হলেও রিপোর্টে খুঁজে পাওয়া সহজ থাকে।"},
+{t:"Buying type",s:"কেনার ধরন",
+a:"বিজ্ঞাপন কীভাবে কিনবেন তা ঠিক করে।",p:[],
+o:[["Auction","প্রায় সব ছোট ও মাঝারি ব্যবসা। রিয়েল-টাইম নিলামে কেনা হয়।","যেকোনো সময় বন্ধ বা বদল করা যায়, অল্প বাজেটেও শুরু করা যায়।","খরচ ও ফল দিনভেদে বদলায়, নির্দিষ্ট reach-এর নিশ্চয়তা নেই।"],["Reservation","আগে থেকে পরিকল্পিত বড় ক্যাম্পেইন, যেখানে ফল ও দাম আগে জানা দরকার। সব objective-এ নেই, সাধারণত Awareness ধরনে।","ফল ও খরচ আগাম অনুমান করা যায়।","আগেই পরিকল্পনা ও সাধারণত বড় বাজেট লাগে, নমনীয়তা কম।"]],
+r:"নতুন বা ছোট ব্যবসার জন্য <b>Auction</b>। বড় ব্র্যান্ড লঞ্চে নিশ্চিত reach চাইলে Reservation ভাবুন।",e:"মাসে $300 বাজেটের দোকান: Auction।",m:"Auction = নমনীয়, Reservation = আগাম নিশ্চয়তা।"},
+{t:"Campaign objective",s:"ক্যাম্পেইনের লক্ষ্য",
+a:"আপনি বিজ্ঞাপন থেকে কী চান তা বেছে নিন। Meta সেই ফল পাওয়ার সম্ভাবনা বেশি এমন মানুষকে বিজ্ঞাপন দেখায়।",p:[],
+o:[["Awareness","নতুন ব্র্যান্ড বা পেজকে বেশি মানুষের কাছে পরিচিত করতে।","কম খরচে অনেক মানুষের কাছে পৌঁছানো যায়।","বিক্রি বা ক্লিকের জন্য ভালো না, মানুষ দেখে কিন্তু কাজ নাও করতে পারে।"],["Traffic","ওয়েবসাইট, ল্যান্ডিং পেজ বা অ্যাপে ভিজিটর পাঠাতে।","ভিজিটর পেতে সহজ ও সস্তা।","ক্লিকার বেশি আসে, ক্রেতা না-ও হতে পারে।"],["Engagement","মেসেজ, ভিডিও ভিউ, রিঅ্যাকশন/কমেন্ট, পেজ লাইক চাইলে।","সোশ্যাল প্রুফ বাড়ে, ইনবক্সে কথা শুরু হয়।","লাইক-কমেন্ট সরাসরি বিক্রি আনে না।"],["Leads","সম্ভাব্য ক্রেতার ফোন/ইমেইল সংগ্রহ (ফর্ম, কল, মেসেজ)।","ক্রেতার যোগাযোগের তথ্য পাওয়া যায়।","লিডের মান কম হতে পারে, দ্রুত ফলো-আপ না করলে নষ্ট।"],["App promotion","শুধু মোবাইল অ্যাপের ইনস্টল বাড়াতে।","অ্যাপ ইনস্টলের জন্য তৈরি।","অ্যাপ না থাকলে অপ্রয়োজনীয়।"],["Sales","সরাসরি অর্ডার/purchase চাইলে।","সবচেয়ে সরাসরি বিক্রির লক্ষ্য, কেনার সম্ভাবনা বেশি এমন মানুষ পায়।","Pixel/ডেটা সেটআপ লাগে, শুরুতে learning সময় ও খরচ বেশি।"]],
+r:"বিক্রিই লক্ষ্য হলে <b>Sales</b>, না হলে নতুন অবস্থায় <b>Traffic</b> বা <b>Engagement</b>। ব্র্যান্ডের পরিচিতি বাড়াতে Awareness।",
+e:"অনলাইন কাপড়ের দোকান: প্রথমে Engagement/Traffic, পিক্সেলে ডেটা জমলে Sales।",m:"স্ক্রিনশটে নাম Engagement হলেও Traffic সিলেক্ট করা ছিল। নাম বদলানো যায়, objective আলাদা বিষয়।"},
+{t:"Campaign spending limit (Optional)",s:"মোট খরচের সীমা",
+a:"একটি ক্যাম্পেইন সব মিলিয়ে সর্বোচ্চ কত খরচ করতে পারবে। <b>None added</b> মানে সীমা নেই।",p:["সীমায় পৌঁছালে খরচ আর বাড়ে না।"],
+o:[],r:"নতুন বা ভুল বাজেটের ভয় থাকলে একটি সীমা দিন।",e:"সীমা $500 দিলে ক্যাম্পেইন যত দিন চলুক, মোট খরচ $500-এর বেশি হবে না।",m:"অতিরিক্ত খরচ ঠেকানোর সুরক্ষা জাল।"},
+{t:"Budget & Bid strategy",s:"বাজেট ও বিড কৌশল",
+a:"কত টাকা খরচ হবে এবং Meta কীভাবে খরচ করবে। <b>Campaign budget (Advantage+ on)</b> মানে পুরো ক্যাম্পেইনের একটি বাজেট, Meta ad set-গুলোর মধ্যে নিজে ভাগ করে।",
+p:["Daily $100 হলে গড়ে দিনে $100। ভালো সুযোগে কোনো দিন সর্বোচ্চ $175 পর্যন্ত যেতে পারে, তবে সপ্তাহে সর্বোচ্চ $700 (৭ × $100)।"],
+o:[["Daily budget","চলমান ক্যাম্পেইন, যেটা নিয়মিত বন্ধ/বদল করবেন।","নিয়ন্ত্রণ সহজ, যেকোনো সময় বদলানো যায়।","কোনো দিন গড়ের চেয়ে বেশি (সর্বোচ্চ $175) খরচ হতে পারে।"],["Lifetime budget","শেষ তারিখসহ নির্দিষ্ট প্রচার (সেল, ইভেন্ট)।","মোট বাজেট একবারে ঠিক, Meta সময়মতো ভাগ করে, ad scheduling-এ সুবিধা।","শেষ তারিখ দিতেই হয়, কোনো দিন বেশি খরচ হতে পারে।"],["Highest volume (Bid strategy)","নতুন বা শুরুর অবস্থায়, যখন সর্বোচ্চ ফলই লক্ষ্য।","সহজ, পুরো বাজেট খরচ করে সবচেয়ে বেশি ফল আনার চেষ্টা করে।","প্রতি ফলের খরচের ওপর সীমা বেঁধে দেওয়া যায় না, খরচ বাড়তে পারে।"]],
+r:"শুরুতে <b>Daily budget + Highest volume</b>। সেল বা ইভেন্টে নির্দিষ্ট মেয়াদ থাকলে Lifetime।",e:"Daily $10 × ৩০ দিন ≈ $300। Lifetime $300, ৩০ দিনে গড়ে $10।",m:"Daily = দিনের গড়, Lifetime = মোট।"},
+{t:"Budget scheduling",s:"নির্দিষ্ট সময়ে বাজেট বাড়ানো",
+a:"বিশেষ দিনে (যেমন সেল) নির্দিষ্ট সময়ের জন্য বাজেট বাড়ানো। <b>Schedule budget increases</b> টিক দিলে চালু।",
+p:["<b>Starts on / Ends</b>: কখন থেকে কখন পর্যন্ত।","<b>Add another time period</b>: আরেকটি সময় (সর্বোচ্চ 50টি), <b>Remove this period</b>: সেটি মোছা।","<b>View</b>: Filter (Upcoming, Completed, All entries) ও Sort (newest/oldest)।","স্ক্রিনশটে $25 বাড়িয়ে Nov 21–22-এ গড়ে $125।"],
+o:[["Increase by value amount ($)","নির্দিষ্ট অঙ্ক বাড়াতে চাইলে।","পরিষ্কার, কত বাড়ছে সরাসরি বোঝা যায়।","মূল বাজেট বদলালে অনুপাত ঠিক থাকে না।"],["Increase by a percentage (%)","বাজেট বদলাতে পারে বলে অনুপাত ধরে রাখতে চাইলে।","মূল বাজেট বদলালেও সমানুপাতে বাড়ে।","মোট অঙ্ক নিজে হিসেব করে দেখতে হয়।"]],
+r:"একবারের সেলে <b>$</b> সহজ। নিয়মিত পরিবর্তনশীল বাজেটে <b>%</b>।",e:"$100-এর ২৫% বা $25 বাড়ালে দুটোই $125।",m:"শুধু ওই সময়ের জন্য বাড়ে, পরে আগের বাজেটে ফেরে।"},
+{t:"Ad scheduling",s:"কোন দিন ও ঘণ্টায় বিজ্ঞাপন চলবে",
+a:"ডিফল্ট <b>Run ads all the time</b>। সময় ধরা হয় ad account বা দর্শকের টাইম জোন অনুযায়ী।",p:["নির্দিষ্ট ঘণ্টার অপশন সাধারণত Lifetime budget-এ পাওয়া যায়, না দেখলে বাজেট ধরন বদলে দেখুন।"],
+o:[["সারাক্ষণ চালানো (Run all the time)","সাধারণ ব্যবহার, নতুন অবস্থায়।","Meta সবচেয়ে ভালো সময় নিজে বেছে নেয়, সেটআপ সহজ।","মানুষ কম সক্রিয় এমন সময়েও খরচ হতে পারে।"],["নির্দিষ্ট ঘণ্টা/দিনে","যখন গ্রাহক শুধু নির্দিষ্ট সময়ে সেবা পান (যেমন দোকানের সময়)।","অপ্রয়োজনীয় সময়ের খরচ বাঁচে।","ডেটা কম জমে, delivery কমে যেতে পারে।"]],
+r:"নতুন অবস্থায় <b>সারাক্ষণ</b>। ডেটা জমলে এবং সুনির্দিষ্ট কারণ থাকলে সময় সীমা দিন।",e:"রেস্টুরেন্ট: দুপুর ১২টা–রাত ১০টা।",m:"সময় সীমা দিলে ফল কমতেও পারে, সাবধানে দিন।"},
+{t:"A/B test",s:"দুটি ভার্সন তুলনা করে সেরাটা বের করা",
+a:"আলাদা আলাদা দর্শককে ভার্সন দেখিয়ে কোনটা ভালো মেপে দেখা। ডিফল্টে <b>Off</b>।",
+p:["<b>How long should the test run?</b>: স্ক্রিনশটে 7 days। ad set শেষ হলে টেস্টও শেষ। খুব কম দিন দিলে ডেটা কম পড়ে।"],
+o:[["Creative","কোন ছবি, ভিডিও বা লেখা ভালো তা দেখতে।","সবচেয়ে সহজ ও দরকারি টেস্ট।","শুধু বিজ্ঞাপনের উপাদান যাচাই হয়, দর্শক নয়।"],["Audience","নতুন টার্গেটিং কেমন চলে তা দেখতে।","সঠিক দর্শক বের করা যায়।","দর্শক ছোট হলে ফল অনির্ভরযোগ্য।"],["Placement","কোথায় (Facebook, Instagram ইত্যাদি) দেখালে ভালো।","খরচ কমানোর সুযোগ।","আলাদা ডেটা কম জমে।"],["Custom","একসাথে একাধিক বিষয় বদলে দেখতে।","উন্নত টেস্টে নমনীয়।","কোন কারণে ফল বদলাল তা বোঝা কঠিন।"]],
+r:"শুরুতে <b>Creative</b> টেস্ট। একবারে একটি জিনিস বদলান।",
+e:"একই অফারের দুটি ছবি, ৭ দিন, কোনটিতে খরচ কম।",m:"তুলনার মাপকাঠি (Cost per result—Recommended, CPC, Cost per 1,000 Meta Accounts reached, Cost per purchase, Standard Events যেমন Cost per 3-second video play) ক্যাম্পেইনের objective-এর সাথে মিলিয়ে বাছুন। বিক্রির জন্য Cost per purchase, ক্লিকের জন্য CPC, পরিচিতির জন্য Cost per 1,000 reached।"},
+{t:"Special Ad Categories",s:"বিশেষ বিজ্ঞাপন বিভাগ",
+a:"নিচের বিষয়ের বিজ্ঞাপন হলে এখানে ঘোষণা দিতে হয়। প্রযোজ্য না হলে খালি রাখুন। দেশভেদে নিয়ম আলাদা।",
+p:["<b>Financial products and services</b>: ক্রেডিট কার্ড, ঋণ, সঞ্চয় অ্যাকাউন্ট, বিনিয়োগ, বিমা।","<b>Employment</b>: চাকরি, ইন্টার্নশিপ, সার্টিফিকেশন প্রোগ্রাম।","<b>Housing</b>: রিয়েল এস্টেট, হোম ইনস্যুরেন্স, মর্টগেজ।","<b>Social issues, elections or politics</b>।","নিশ্চিত না হলে <b>Get help declaring categories</b> দেখুন।"],
+o:[["ঘোষণা দিলে","বিজ্ঞাপন প্রযোজ্য বিষয়ের হলে।","বিজ্ঞাপন rejected হওয়ার ঝুঁকি কমে, নিয়ম মানা হয়।","টার্গেটিং সীমিত হয় (যেমন বয়স, লিঙ্গ, ঠিকানা)।"],["ঘোষণা না দিলে","প্রযোজ্য না হলেই শুধু।","পূর্ণ টার্গেটিং পাওয়া যায়।","প্রযোজ্য হলে না দিলে বিজ্ঞাপন বন্ধ বা অ্যাকাউন্টে সমস্যা হতে পারে।"]],
+r:"বিজ্ঞাপন এসব বিষয়ের হলে অবশ্যই ঘোষণা দিন। ঝুঁকি না নেওয়াই ভালো।",e:"চাকরির নিয়োগ বিজ্ঞাপন → Employment।",m:"ঘোষণা না দেওয়ার চেয়ে ভুল ঘোষণা কম ক্ষতিকর, তবে সঠিকটাই দিন।"},
+{t:"Campaign score",s:"ক্যাম্পেইন স্কোর",
+a:"সেটআপ Meta-র সুপারিশের কতটা কাছে তার স্কোর। স্ক্রিনশটে <b>100</b> মানে recommended setup।",p:["কম হলে Meta উন্নতির পরামর্শ দেয়।"],o:[],r:"",e:"",m:"১০০ মানে ফলের নিশ্চয়তা নয়, শুধু সুপারিশ মেনে সেটআপ।"}
+];
+const D3=[
+{t:"Ad name & Partnership ad",s:"বিজ্ঞাপনের নাম ও পার্টনারশিপ",
+a:"<b>Ad name</b> শুধু আপনি দেখেন। <b>Create template</b> দিয়ে নামের কাঠামো বানানো যায় (আগের মতোই)। <b>Partnership ad</b> ডিফল্টে <b>Off</b>।",
+p:["<b>Partnership ad</b>: ক্রিয়েটর, ব্র্যান্ড বা অন্য ব্যবসার সাথে মিলে বিজ্ঞাপন চালানো। দুই প্রোফাইলের সংকেত কাজে লাগিয়ে তাদের বিশ্বস্ত মানুষের সাথে সংযোগ তৈরির কথা বলা হয়েছে।"],
+o:[["Partnership ad Off","নিজের একার ব্র্যান্ডের বিজ্ঞাপনে।","সহজ, অন্যের অনুমতি লাগে না।","ক্রিয়েটরের অনুসারীদের বিশ্বাসের সুবিধা পান না।"],["Partnership ad On","ইনফ্লুয়েন্সার বা অন্য ব্যবসার সাথে যৌথ প্রচারে।","দুই পক্ষের দর্শকের কাছে পৌঁছানো যায়।","অন্য পক্ষের সাথে অনুমতি ও সমন্বয় দরকার।"]],
+r:"একা চালালে <b>Off</b>।",e:"নামের নমুনা: Honey_Image_Website_Nov",m:"নামকরণ টেমপ্লেটের নিয়ম আগের মতো (Ad level-এ Ad fields পাওয়া যেতে পারে)।"},
+{t:"Identity",s:"কোন প্রোফাইল ও পরিচয়ে বিজ্ঞাপন যাবে",
+a:"বিজ্ঞাপনে যে প্রোফাইল ও ব্র্যান্ডিং দেখাবে তা এখানে ঠিক হয়।",
+p:["<b>Facebook Page</b> (তারা চিহ্নিত, বাধ্যতামূলক): কোন পেজের নামে বিজ্ঞাপন যাবে।","<b>Instagram profile</b>: <b>Use Facebook Page</b> (পেজের পরিচয়ে) অথবা <b>Connect profile</b> দিয়ে নিজের Instagram যোগ।","<b>Threads profile</b>: একইভাবে <b>Use Facebook Page</b>।","<b>WhatsApp phone number</b>: WhatsApp-এ বিজ্ঞাপন বা WhatsApp বাটনের জন্য নম্বর। বার্তা: প্রোফাইল ছবি ও নাম প্রিভিউয়ে দেখা না গেলেও বিজ্ঞাপনে দেখাবে (WhatsApp Status-এর ক্ষেত্রে)।","<b>Branding</b> (ডিফল্ট Inactive): <b>Add branding</b> দিলে এই ও ভবিষ্যৎ বিজ্ঞাপনের ব্র্যান্ড ডিফল্ট সেট হয়। Meta আগের URL/বিজ্ঞাপন, আপনার Facebook Page ও Shopify অ্যাকাউন্ট থেকে নিজেই ডিফল্ট ঠিক করতে পারে।"],
+o:[["Instagram: Use Facebook Page","Instagram অ্যাকাউন্ট না থাকলে।","সহজ, কিছু যোগ করতে হয় না।","Instagram-এ আপনার আসল প্রোফাইল দেখায় না।"],["Instagram: Connect profile","নিজের Instagram থাকলে।","নিজের ব্র্যান্ড পরিচয় ও কমেন্ট একই জায়গায়।","অ্যাকাউন্ট সংযোগ ও অনুমতির ঝামেলা।"],["Branding যোগ করা","একাধিক বিজ্ঞাপনে একই লোগো/রং চান।","সবসময় একই ব্র্যান্ড চেহারা।","ভুল ডিফল্ট বসলে সব বিজ্ঞাপনে ছড়ায়।"]],
+r:"Instagram থাকলে <b>Connect profile</b>, না থাকলে Page পরিচয়।",e:"",m:"পরিচয় বিজ্ঞাপনে জনসমক্ষে দেখা যায়, ঠিকটা বেছে নিন।"},
+{t:"Ad setup",s:"বিজ্ঞাপন কীভাবে বানাবেন",
+a:"তিনটি পথ: নতুন বানানো, পুরোনো পোস্ট ব্যবহার, বা Creative Hub মকআপ।",p:[],
+o:[["Create ad","নতুন ছবি/ভিডিও ও লেখা দিয়ে।","পূর্ণ নিয়ন্ত্রণ।","শুরু থেকে সব বানাতে হয়।"],["Use existing post","আগের ভালো চলা পেজ/Instagram পোস্টকে বিজ্ঞাপন বানাতে।","লাইক-কমেন্ট (social proof) সহ বিজ্ঞাপন।","পোস্টের সব অংশ আলাদা করে বদলানো যায় না।"],["Use Creative Hub mockup","Creative Hub-এ আগে বানানো মকআপ ব্যবহার করতে।","পরীক্ষিত ডিজাইন।","Creative Hub ব্যবহার করে না থাকলে অপ্রয়োজনীয়।"]],
+r:"নতুন হলে <b>Create ad</b>। ভালো চলা পোস্ট থাকলে <b>Use existing post</b>।",e:"",m:"একই ছবি বিভিন্ন ad set-এ চালাতে Use existing post সুবিধার, ইঙ্গিত সাধারণ জ্ঞান থেকে।"},
+{t:"Creative source, Format & Multi-advertiser ads",s:"উৎস, ফরম্যাট ও যৌথ বিজ্ঞাপন",
+a:"বিজ্ঞাপনের উপাদান কোথা থেকে আসবে, কোন কাঠামোতে দেখাবে এবং অন্যদের সাথে দেখানো হবে কি না।",
+p:["<b>Creative source</b>: <b>Manual upload</b> (নিজে আপলোড) বা <b>Product media</b> (ক্যাটালগ থেকে প্রাসঙ্গিক ছবি/ভিডিও; স্ক্রিনশটে ধূসর, ক্যাটালগ না থাকায় সম্ভবত)।","<b>Format</b>: <b>Single image or video</b> বা <b>Carousel</b>।","<b>Multi-advertiser ads</b> টিক: আপনার বিজ্ঞাপন একই ad unit-এ অন্যদের বিজ্ঞাপনের সাথেও দেখা যেতে পারে, আর ক্রিয়েটিভ resize বা crop হতে পারে।"],
+o:[["Single image or video","একটি পণ্য বা বার্তা।","সহজ, দ্রুত বানানো।","এক বিজ্ঞাপনে একটি বার্তা।"],["Carousel","একাধিক পণ্য বা ধাপ দেখাতে।","বেশি পণ্য একসাথে, ব্যবহারকারী স্লাইড করে।","প্রতিটি কার্ডের ছবি ও লেখা বানাতে বেশি কাজ।"],["Multi-advertiser ads চালু","বেশি আবিষ্কার/reach চাইলে।","দৃশ্যমানতা বাড়তে পারে।","ক্রিয়েটিভ crop হয়, অন্যের বিজ্ঞাপনের পাশে দেখা যায়।"]],
+r:"নতুন অবস্থায় <b>Manual upload + Single image or video</b>। পণ্য অনেক থাকলে Carousel।",e:"৫টি মধু প্যাকেজ: Carousel।",m:"Multi-advertiser টিক না দিলে ক্রিয়েটিভ আপনার মতো থাকে, তবে reach কিছুটা কমতে পারে।"},
+{t:"Add products (Set up your catalog)",s:"পণ্যের ক্যাটালগ বানানো",
+a:"<b>Add products</b> চাপলে ক্যাটালগ সেটআপ আসে, যেখানে পণ্যের তথ্য রাখা ও পরিচালনা হয়।",
+p:["<b>Choose what best describes your products or services</b>: স্ক্রিনশটে <b>Online products</b>। এই পছন্দ পরে বদলানো যায় না।","<b>Connect to a partner platform</b> (ডিফল্ট Off): Shopify, WooCommerce ইত্যাদি (+11টি) থেকে পণ্য সিঙ্ক।","<b>Business portfolio</b> ও <b>Catalog name</b>।","<b>Manage access</b> – <b>Give people access</b> (On): ব্যবসার সবাই নিজে থেকে পূর্ণ অ্যাক্সেস পায়, পরে Business Settings-এ বদলানো যায়।","<b>Connect your data</b>: পণ্য ট্র্যাক করার dataset বাছা। <b>Connect data</b> বাটন (পরের ড্রপডাউন দেখুন)। শেষে <b>Next</b>।","ক্যাটালগ ব্যবহারে Catalog terms, Meta Advertising policies ও Commerce policies মানার ঘোষণা দিতে হয়।"],
+o:[["Partner platform যুক্ত করা","Shopify/WooCommerce দোকান থাকলে।","পণ্য নিজে থেকে সিঙ্ক হয়, হাতে আপডেট কম।","প্ল্যাটফর্ম সংযোগের সেটআপ লাগে।"],["হাতে পণ্য যোগ করা","ছোট দোকান, পণ্য কম।","সহজ, কোনো প্ল্যাটফর্ম লাগে না।","পণ্য বদলালে বারবার হাতে আপডেট।"],["Give people access On","দল নিয়ে কাজ করলে।","সবাই ক্যাটালগ ব্যবহার করতে পারে।","সবাই পূর্ণ অ্যাক্সেস পায়, নিরাপত্তা ভাবুন।"]],
+r:"পণ্য বেশি ও ওয়েবসাইট থাকলে <b>Partner platform</b>।",e:"",m:"Business portfolio ও Catalog name পরে চেনার জন্য পরিষ্কার দিন।"},
+{t:"Connect data (Events Manager → Integrations)",s:"ডেটা সংযোগ: Pixel, Conversions API ইত্যাদি",
+a:"<b>Connect data</b> চাপলে Events Manager-এর <b>Integrations</b> পাতা খোলে, যেখানে ওয়েবসাইট বা অ্যাপের কার্যকলাপের ডেটা Meta-র সাথে যুক্ত হয়। <b>My integrations</b> ও <b>Partner gallery</b> ট্যাব আছে।",
+p:["বাঁ মেনুতে: Connect data, Overview, Datasets, Custom conversions, Integrations। উপরে <b>Search for a partner</b>, <b>Filter by data source</b>, <b>Filter by categories</b>।","<b>Meta Products</b> – <b>Meta Pixel</b> (Web events), <b>Conversions API</b> (Web events), <b>Facebook SDK</b> (App events), <b>Conversions API gateway</b> (Web events), <b>Signals gateway</b> (Web events)।","<b>Ecommerce</b> – যেমন <b>BigCommerce</b> (Set up automatically) ও <b>Shift4Shop</b> (Web events)।"],
+o:[["Meta Pixel","ওয়েবসাইটে ব্রাউজারের ক্রিয়া মাপতে।","সহজ সেটআপ, ওয়েব ইভেন্ট ট্র্যাক।","ব্রাউজার/অ্যাড-ব্লকারে কিছু ডেটা হারায়।"],["Conversions API","সার্ভার থেকে সরাসরি ডেটা পাঠাতে।","ব্রাউজার-নির্ভরতা কম, তথ্য আরও নির্ভরযোগ্য।","কারিগরি সেটআপ কঠিন।"],["Facebook SDK","মোবাইল অ্যাপ থাকলে।","অ্যাপ ইভেন্ট ট্র্যাক।","অ্যাপ না থাকলে অপ্রয়োজনীয়।"],["Partner integration (যেমন BigCommerce)","এসব প্ল্যাটফর্মে দোকান থাকলে।","স্বয়ংক্রিয় সংযোগ।","শুধু সমর্থিত প্ল্যাটফর্মে।"]],
+r:"ওয়েবসাইট থাকলে <b>Meta Pixel</b> দিয়ে শুরু, পরে সম্ভব হলে Conversions API যোগ করুন।",e:"",m:"Conversions API gateway ও Signals gateway আমার জানা কম, শুধু স্ক্রিনশটের তথ্য লিখেছি। Meta-র ডকুমেন্ট দেখে নিন।"},
+{t:"Destination",s:"ক্লিকের পর মানুষ কোথায় যাবে",
+a:"বিজ্ঞাপনে ট্যাপ বা ক্লিকের <b>ঠিক পরেই</b> কোথায় পাঠাবেন তা ঠিক করে। স্ক্রিনশটে চারটি: Instant Experience, Website, Facebook event, Phone call।",p:[],
+o:[["Instant Experience","মোবাইলে দ্রুত লোড হওয়া পূর্ণ-পর্দার অভিজ্ঞতা চাইলে।","দ্রুত লোড, মোবাইল-বান্ধব।","বানাতে বাড়তি কাজ।"],["Website","নিজের সাইটে পাঠাতে।","সবচেয়ে সাধারণ, ব্রাউজার add-on পাওয়া যায়।","সাইট ধীর হলে ক্লিক নষ্ট।"],["Facebook event","ইভেন্ট (ওয়েবিনার, সেল) প্রচারে।","সরাসরি ইভেন্ট পেজে সাড়া।","শুধু ইভেন্টের জন্য উপযুক্ত।"],["Phone call","ফোন কলে অর্ডার বা বুকিং।","সরাসরি আগ্রহী ক্রেতা।","ফোন ধরার লোক লাগে।"]],
+r:"সাইট থাকলে <b>Website</b>।",e:"",m:"Destination বদলালে নিচের ইনপুট ফিল্ড বদলে যায়।"},
+{t:"Destination: Website (URL, Display link, Browser add-ons)",s:"ওয়েবসাইট গন্তব্যের খুঁটিনাটি",
+a:"<b>Website URL</b> (বাধ্যতামূলক): ক্লিকের পর যে লিংকে যাবে। <b>Display link</b> (সর্বোচ্চ 250 অক্ষর): বিজ্ঞাপনে যে ছোট লিংক দেখাবে। <b>Browser add-ons</b>: ওয়েবসাইটের পাশে বাড়তি বাটন।",
+p:["<b>None</b>: কোনো বাটন নয়।","<b>Call</b>: <b>Call now</b> নম্বর। <b>Business hours</b> টগল On হলে কোন কোন দিন ও সময় (স্ক্রিনশটে Mon–Fri, 9:00 AM–5:00 PM) ফোনে পাওয়া যাবে তা জানানো যায়। না দিলে যেকোনো সময় কল করা যায়।","<b>Messenger</b>: Messenger বাটন।","<b>WhatsApp</b>: WhatsApp বাটন। যুক্ত নম্বর Page থেকে আসে। বার্তা: WhatsApp তথ্য Meta Advertising Policies ও WhatsApp Commerce Policy-র আওতায়, আর Facebook/Instagram-এ সাইট দেখার সময় WhatsApp লিংক বদলে যেতে পারে।","<b>Instant form (suggested)</b>: যোগাযোগের তথ্য সংগ্রহ (পরের ড্রপডাউন)।"],
+o:[["None","শুধু সাইটে ভিজিট চাইলে।","সরল, বিভ্রান্তি কম।","সাইটে কল/চ্যাটের সুবিধা থাকে না।"],["Call","ফোনে অর্ডার নেন।","সরাসরি ফোন।","ফোন ধরার লোক ও সময় ঠিক রাখতে হয়।"],["Messenger / WhatsApp","চ্যাটে অর্ডার ও প্রশ্ন নেন।","সহজ কথোপকথন।","দ্রুত উত্তর না দিলে ক্রেতা হারান।"],["Instant form","ফোন/ইমেইল সংগ্রহ।","ফর্ম আগে থেকে ভরা, সহজে জমা।","লিডের মান যাচাই দরকার।"]],
+r:"পণ্য বিক্রির সাইটে <b>None</b> বা <b>WhatsApp/Messenger</b> (আপনার অর্ডার পদ্ধতি অনুযায়ী)।",e:"মধুর সাইটে WhatsApp বাটন, যাতে ক্রেতা সরাসরি অর্ডার করে।",m:"Call add-on-এ Business hours না দিলে যেকোনো সময় কল আসবে।"},
+{t:"Instant form & Automated lead delivery",s:"লিড ফর্ম ও লিড স্বয়ংক্রিয় পাঠানো",
+a:"<b>Instant form</b> বেছে নিলে ফর্ম তৈরি বা বিদ্যমান ফর্ম বাছা যায়। <b>Automated lead delivery</b> (ঐচ্ছিক) নতুন লিড নিজে থেকে অন্য টুলে পাঠায়।",
+p:["<b>Create form</b> নতুন ফর্ম বানায়। <b>Search your forms</b> বক্সে <b>Active</b> ও <b>Archived</b> ট্যাব।","<b>Google Sheets</b> (Set up): লিড স্প্রেডশিটে। <b>Zapier</b> (Connect Conversions API)। <b>Microsoft Excel</b> (Set up): লিড ওয়ার্কশিটে।"],
+o:[["Google Sheets","ছোট দল, সহজ লিড তালিকা।","বিনামূল্যে, সহজ।","বড় ডেটায় ধীর, হাতে ফলো-আপ করতে হয়।"],["Zapier","অন্য টুলে (CRM, ইমেইল) স্বয়ংক্রিয় পাঠাতে।","অনেক অ্যাপের সাথে সংযোগ।","বেশি ব্যবহারে খরচ লাগতে পারে।"],["Microsoft Excel","Excel-ভিত্তিক কাজে।","পরিচিত ফরম্যাট।","সেটআপ কিছুটা জটিল (আলাদা পাতায় যেতে হয়)।"]],
+r:"শুরুতে <b>Google Sheets</b>।",e:"নতুন লিড এলে স্প্রেডশিটে নিজে যোগ হয়, ক্রেতাকে দ্রুত ফোন।",m:"লিড দ্রুত ধরতে স্বয়ংক্রিয় পাঠানো গুরুত্বপূর্ণ।"},
+{t:"Destination: Facebook event & Phone call",s:"ইভেন্ট ও ফোন কল",
+a:"<b>Facebook event</b>: ইভেন্টের নাম বা Facebook event URL দিন। <b>Phone call</b>: <b>Call now</b> নম্বর দিন।",
+p:["Phone call-এ সতর্কতা: আপনার ad set landing page views optimization ব্যবহার করলে ফোন কল কম আসতে পারে। সর্বোচ্চ কলের জন্য link click optimization-এ বদলান। <b>Go to Optimization & delivery</b> লিংক আছে।"],
+o:[["Facebook event","কোনো ইভেন্টে মানুষ আনতে।","ইভেন্ট পেজেই সাড়া ও RSVP।","ইভেন্ট ছাড়া ব্যবহার নেই।"],["Phone call","সরাসরি ফোন চান।","আগ্রহী ক্রেতা সরাসরি যোগাযোগ করে।","landing page views goal থাকলে কল কম আসে (Performance goal মেলাতে হবে)।"]],
+r:"Phone call হলে Ad set-এ <b>Maximize number of link clicks</b> বা কলের উপযোগী goal দিন।",e:"",m:"এটা আগের Performance goal-এর সাথে সরাসরি যুক্ত।"},
+{t:"Ad creative: Image ad vs Video ad",s:"ছবি বা ভিডিও বিজ্ঞাপন ও Media ডায়ালগ",
+a:"<b>Set up creative</b> থেকে <b>Image ad</b> বা <b>Video ad</b> বেছে মিডিয়া ঠিক করা হয়। মিডিয়া না দিলে সতর্কবার্তা আসে: <b>Please specify the media</b>।",
+p:["ডায়ালগের ধাপ (উপরের ট্যাবে): <b>Media</b>, <b>Creative setup</b>, <b>Crop</b>, <b>Text</b>, <b>Creative generation</b>, <b>Enhancements</b>, <b>Translation</b>। মিডিয়া বাছার আগে কিছু ধাপ ধূসর থাকে। ভিডিওতে বাড়তি ধাপ <b>Video length</b>।","<b>Media</b> ধাপে একটি ছবি বা ভিডিও বাছা যায়। উৎস ট্যাব: ছবিতে <b>All, Account, Business, Instagram, Page</b>; ভিডিওতে <b>All, Account, Business, Video URL, Page</b>।","<b>Search media</b> বক্স, ফিল্টার বাটন ও <b>Upload</b>। ছবিগুলো Account images ও নির্দিষ্ট Page-এর ছবির তালিকায় আকারসহ (যেমন 1080×1080) দেখায়।","নিচে গণনা: <b>Media from you</b> ও <b>Image from AI</b>। শেষে <b>Next</b> বা <b>Cancel</b>।","বাইরের <b>Languages</b> টগল (ডিফল্ট Off): নিজের অনুবাদ যোগ বা স্বয়ংক্রিয় অনুবাদের সুবিধা (স্ক্রিনশটে লেখা কাটা ছিল)।"],
+o:[["Image ad","সাধারণ পণ্য, দ্রুত বানানো।","সহজ, দ্রুত লোড।","গল্প বলার সুযোগ কম।"],["Video ad","পণ্য ব্যবহার, গল্প বা Reels/Stories।","বেশি আকর্ষণীয়, মনোযোগ ধরে রাখে।","বানাতে খরচ ও সময় বেশি।"],["Upload","নতুন ক্রিয়েটিভ থাকলে।","পূর্ণ নিয়ন্ত্রণ।","আকার ভুল হলে crop খারাপ দেখায়।"],["Page/Instagram/Account থেকে বাছা","আগের আপলোড করা মিডিয়া থাকলে।","দ্রুত, আবার আপলোড লাগে না।","পুরোনো বা ভুল ছবি বাছার ঝুঁকি।"]],
+r:"পণ্যের জন্য <b>Image ad</b> দিয়ে শুরু, পরে <b>Video ad</b>।",e:"",m:"ছোট কমিয়ে ছবি দিলে 1080px বা বেশি আকারের ছবি ভালো (ফিল্টারেও 1080 অপশন আছে)।"},
+{t:"Media filters",s:"ছবি ও ভিডিওর ফিল্টার",
+a:"মিডিয়া তালিকা ছোট করতে ফিল্টার। ছবি ও ভিডিওর ফিল্টার কিছুটা আলাদা।",
+p:["<b>ছবি</b>: Aspect ratio – <b>Fullscreen horizontal (16:9)</b>, <b>Fullscreen vertical (9:16)</b>, <b>Vertical (4:5)</b>, <b>Square (1:1)</b>। Height ও Width: 600 pixels or more, 1080 pixels or more।","<b>ভিডিও</b>: Video filter – <b>Original uploads only</b> (ডিফল্টে টিক); Policy – <b>May meet policy</b>, <b>May not comply</b>; Length – Less than 15 seconds, Less than 60 seconds, 60 seconds or more; Aspect ratio (ছবির মতোই); Width – Less than 600 pixels, 600 pixels or more।"],
+o:[["Square (1:1)","Feed-এ সাধারণ।","প্রায় সব জায়গায় চলে।","ফুলস্ক্রিনে জায়গা কম।"],["Vertical (4:5)","মোবাইল Feed-এ বেশি জায়গা চাইলে।","Feed-এ বেশি দৃশ্যমান।","Stories/Reels-এ crop হয়।"],["Fullscreen vertical (9:16)","Stories, Reels।","পূর্ণ পর্দা, immersive।","Feed-এ crop হতে পারে।"],["Fullscreen horizontal (16:9)","ল্যান্ডস্কেপ ভিডিও (সাইট, ইউটিউব ধরনের)।","চলচ্চিত্রের মতো।","মোবাইলে ছোট দেখায়।"]],
+r:"একাধিক placement-এর জন্য <b>1:1 ও 9:16</b> দুইটি সংস্করণ রাখুন।",e:"",m:"Policy ফিল্টারের ‘May not comply’ মানে নীতি লঙ্ঘনের সম্ভাবনা, এমন মিডিয়া এড়িয়ে চলুন।"},
+{t:"Tracking",s:"ট্র্যাকিং ও URL parameters",
+a:"কোন কনভার্শন ইভেন্ট ট্র্যাক হবে তা ঠিক করে। ডিফল্টে ad account-এর বাছা conversion dataset ট্র্যাক হয়।",
+p:["<b>Website events</b>, <b>App events</b>, <b>Offline events</b>: প্রতিটির পাশে <b>Set up</b>।","<b>URL parameters</b>: গঠন <b>key1=value1&key2=value2</b>। <b>Build a URL parameter</b> লিংকে সহজে বানানো যায়। সাধারণত utm_source, utm_medium, utm_campaign দেওয়া হয়, যাতে Google Analytics-এ ট্র্যাফিকের উৎস চেনা যায়।"],
+o:[["Website events","ওয়েবসাইটের কেনা, কার্টে যোগ ইত্যাদি মাপতে।","বিজ্ঞাপন থেকে কী কাজ হলো তা বোঝা যায়।","Pixel/CAPI ঠিকভাবে সেটআপ না থাকলে ডেটা ভুল।"],["App events","অ্যাপের ইনস্টল/ক্রয়।","অ্যাপ ফল মাপা যায়।","অ্যাপ না থাকলে লাগে না।"],["Offline events","দোকানে কেনা বা ফোন অর্ডার মাপতে।","অনলাইন বিজ্ঞাপন থেকে অফলাইন বিক্রি বোঝা যায়।","ডেটা আপলোডের ঝামেলা।"],["URL parameters","বিজ্ঞাপন-ভিত্তিক ট্র্যাফিক আলাদা করতে।","Analytics-এ কোন বিজ্ঞাপন কাজ করছে বোঝা যায়।","ভুল লিখলে লিংক ভেঙে যেতে পারে।"]],
+r:"ওয়েবসাইট থাকলে <b>Website events + UTM parameters</b>।",e:"utm_source=facebook&utm_medium=paid&utm_campaign=honey_nov",m:"শেষে সবসময় লিংক নিজে একবার খুলে পরীক্ষা করুন।"},
+{t:"Third-party reporting (Google Analytics 4)",s:"তৃতীয় পক্ষের রিপোর্টিং সংযোগ",
+a:"Meta-র কেনাকাটা Google-এর রিপোর্টে নাও দেখা যেতে পারে। <b>Connect</b> চাপলে একটি মার্কেটিং ট্যাগ যুক্ত করে Meta-তে ব্রাউজ বা চেকআউট করা ক্রেতার সব কনভার্শন ট্র্যাক করা যায়।",
+p:["ডায়ালগে: <b>Ad account</b> (নাম ও আইডি), <b>Third-party reporting tool</b> (স্ক্রিনশটে শুধু <b>Google Analytics 4</b>), <b>Measurement ID</b> (যেমন G-XXXXXXXXXX)। শেষে <b>Save tags</b> বা <b>Cancel</b>।"],
+o:[["Connect করা (GA4)","Google Analytics ব্যবহার করলে।","Meta ও Google-এর রিপোর্ট কাছাকাছি, তুলনা সহজ।","Measurement ID ঠিক না থাকলে ভুল ডেটা।"],["Connect না করা","Analytics ব্যবহার না করলে।","কোনো বাড়তি সেটআপ লাগে না।","Meta কেনা Google রিপোর্টে নাও দেখা যেতে পারে।"]],
+r:"GA4 থাকলে <b>Connect</b>।",e:"",m:"Measurement ID GA4 সেটিংসে পাওয়া যায়।"},
+{t:"একই নামের পার্থক্য (Ad Level)",s:"যেগুলো দেখতে এক, কাজে আলাদা",
+a:"Ad Level-এও কিছু নাম একাধিকবার আছে, কিন্তু কাজ আলাদা।",p:[],
+o:[["Call (Browser add-on) vs Phone call (Destination)","Call = ওয়েবসাইটের পাশে কল বাটন। Phone call = গন্তব্যই ফোন কল।","দুটোর জন্য ফোন নম্বর লাগে।","আলাদা পছন্দ, ভুলে একটি অন্যটির বদলে ব্যবহার করবেন না।"],["Instant form (add-on) vs Instant Experience","Instant form = যোগাযোগের তথ্য সংগ্রহ। Instant Experience = দ্রুত লোড হওয়া পূর্ণ-পর্দার পাতা।","দুটোই মোবাইল-বান্ধব।","একই নয়।"],["Website events vs Offline events","Website = ওয়েব কার্যকলাপ, Offline = দোকান বা ফোনের কার্যকলাপ।","আলাদা উৎস মাপা যায়।","ভুল সেটআপে ডেটা মেশে।"],["Account vs Page media","Account = ad account-এর মিডিয়া, Page = পেজের পোস্ট করা মিডিয়া।","দুই জায়গা থেকে বাছা যায়।","পুরোনো ছবি বাছার ঝুঁকি।"]],
+r:"",e:"",m:"নিশ্চিত না হলে ডিফল্ট রাখুন।"}
+];
+const L=document.getElementById("list");
+function R(D){L.innerHTML="";D.forEach((d,i)=>{
+const el=document.createElement("details");el.name="g";if(i===0)el.open=true;
+const bx=(c,h,t)=>t?`<div class="bx ${c}"><h4>${h}</h4>${t}</div>`:"";
+const os=d.o.length?`<div class="os">`+d.o.map(o=>`<div class="o"><h5>${o[0]}</h5><p><b>কখন:</b> ${o[1]}</p><p class="pr">✔ সুবিধা: ${o[2]}</p><p class="cn">✘ অসুবিধা: ${o[3]}</p></div>`).join("")+`</div>`:"";
+el.innerHTML=`<summary><span>${d.t}<small>${d.s}</small></span></summary><div class="bd">
+${bx("a","সহজ উত্তর",d.a)}
+${d.p.length?bx("e","ব্যাখ্যা","<ul>"+d.p.map(x=>`<li>${x}</li>`).join("")+"</ul>"):""}
+${os?bx("e","অপশন তুলনা",os):""}
+${bx("r","কোনটা নেবেন?",d.r)}
+${bx("x","বাস্তব উদাহরণ",d.e)}
+${bx("m","মনে রাখুন",d.m)}</div>`;
+L.appendChild(el);});}
+const D2=[
+{t:"Ad set name & Naming template",s:"অ্যাড সেটের নাম ও টেমপ্লেট",
+a:"অ্যাড সেটের নাম, যা শুধু আপনি দেখেন। <b>Create template</b> দিয়ে নামের কাঠামো বানানো যায়, সেটিং বদলালে নাম নিজে আপডেট হয়।",
+p:["<b>Add component</b> মেনুতে চারটি অংশ: <b>Campaign fields</b>, <b>Ad set fields</b>, <b>Open text field</b> (ফাঁকা জায়গা), <b>Custom field</b> (নিজের অনন্য তথ্য)।","<b>Ad set fields</b>-এ যা পাওয়া গেছে: Age, Gender, Mobile device, Mobile operating system, Optimization for ad delivery, Saved audience, Ad scheduling, Ad set ID, Interest, Country, City, ZIP code, Ad set updated date, Custom audiences (excluded), Custom audiences (included)। তালিকা আরও নিচে যেতে পারে।"],
+o:[["Campaign fields + Ad set fields (স্বয়ংক্রিয়)","একাধিক ad set চালালে, যাতে নাম দেখেই বোঝা যায় কাকে টার্গেট করছে।","টার্গেটিং বদলালে নামও বদলায়, ভুল কম, রিপোর্ট পরিষ্কার।","বেশি ফিল্ড দিলে নাম খুব লম্বা হয়।"],["Open text / Custom field (নিজের লেখা)","নিজের বিশেষ ট্যাগ বা নোট রাখতে।","পূর্ণ স্বাধীনতা।","হাতে লিখতে হয়, অমিলের ঝুঁকি।"]],
+r:"<b>Country/City + Age + Interest</b> এই ধরনের Ad set fields দিয়ে টেমপ্লেট বানান।",e:"BD_Dhaka | 18-35 | Fashion — নাম দেখেই টার্গেট বোঝা যায়।",m:"Ad set-এ টার্গেটিং থাকে, তাই এই নামে টার্গেটের তথ্য রাখাই সবচেয়ে কাজের।"},
+{t:"Conversion location",s:"ক্লিকের পর মানুষ কোথায় যাবে",
+a:"বিজ্ঞাপন দেখে মানুষকে কোথায় পাঠাতে চান তা ঠিক করে (<b>Choose where you want to drive traffic</b>)।",p:["স্ক্রিনশটে <b>Website</b> সিলেক্ট করা।","<b>App</b> ধূসর (নিষ্ক্রিয়) ছিল, কারণ সম্ভবত অ্যাপ সংযুক্ত নেই।"],
+o:[["Website","নিজের ওয়েবসাইট বা ল্যান্ডিং পেজ থাকলে।","সবচেয়ে প্রচলিত, Pixel দিয়ে ফল মাপা যায়।","সাইট ধীর বা মোবাইলে খারাপ হলে ক্লিক নষ্ট হয়।"],["Message destinations (Messenger, Instagram, WhatsApp)","সাইট নেই কিন্তু চ্যাটে অর্ডার নেন।","সরাসরি কথা বলে বিক্রি করা যায়।","দ্রুত উত্তর না দিলে ক্রেতা হারায়, হাতে কাজ বেশি।"],["Instagram or Facebook","প্রোফাইল বা পেজে ফলোয়ার/ভিজিট চান।","ফলোয়ার বাড়ে, সহজ সেটআপ।","সরাসরি বিক্রি বা লিড কম।"],["Calls","ফোন কলে অর্ডার বা বুকিং নেন।","আগ্রহী ক্রেতা সরাসরি ফোনে।","ফোন ধরার লোক লাগে, সব দেশে/অ্যাকাউন্টে নাও থাকতে পারে।"],["Instagram live video","Instagram লাইভ ভিডিওতে মানুষ আনতে।","লাইভ দর্শক বাড়ে।","শুধু লাইভের সময়ই কাজের।"],["App","মোবাইল অ্যাপ থাকলে।","সরাসরি অ্যাপে পাঠানো।","অ্যাপ সংযুক্ত না থাকলে বন্ধ।"]],
+r:"সাইট থাকলে <b>Website</b>, না থাকলে <b>Message destinations</b>।",e:"অনলাইন শপ: Website। ফেসবুক-ভিত্তিক দোকান: Messenger।",m:"এই পছন্দ বদলালে নিচের Performance goal-এর অপশনও বদলে যায়।"},
+{t:"Performance goal",s:"পারফরম্যান্স লক্ষ্য",
+a:"আপনি সাফল্য কীভাবে মাপবেন, আর Meta কাদের কাছে বিজ্ঞাপন দেখাবে তা ঠিক করে। দুই ভাগে: <b>Traffic goals</b> ও <b>Other goals</b>।",p:["স্ক্রিনশটে Maximize number of landing page views সিলেক্ট করা।"],
+o:[["Maximize number of landing page views","যারা বিজ্ঞাপনে ক্লিক করে পেজ লোড করবে তাদের পেতে।","শুধু ক্লিক নয়, পেজ খোলা ভিজিটর আসে।","ক্লিকের চেয়ে খরচ বেশি, সাধারণত ভালো ট্র্যাকিং ও দ্রুত সাইট লাগে।"],["Maximize number of link clicks","সবচেয়ে বেশি ক্লিক চাইলে।","সস্তা, ক্লিক বেশি।","পেজ না খুলে বের হয়ে যাওয়া ক্লিকও থাকে।"],["Maximize daily unique reach","একজনকে দিনে একবার, বেশি মানুষের কাছে পৌঁছাতে।","বিরক্তি কম, নতুন মানুষ বেশি।","বারবার মনে করানো যায় না।"],["Maximize number of conversations","মেসেজিংয়ে কথা শুরু করাতে।","আগ্রহী মানুষ চ্যাটে আসে।","কথা হলেই বিক্রি হয় না।"],["Maximize number of impressions","সবচেয়ে বেশিবার দেখাতে (ব্র্যান্ড প্রচার)।","দেখানোর খরচ সবচেয়ে কম।","একই মানুষ বারবার দেখে, সাড়া কম।"]],
+r:"ওয়েবসাইটে ভিজিটর চাইলে <b>landing page views</b>, সাইট ধীর হলে <b>link clicks</b>। চ্যাটে বিক্রি হলে <b>conversations</b>।",e:"সেলের পেজে ভিজিটর আনতে: landing page views।",m:"Traffic goals = ক্লিকভিত্তিক, Other goals = reach/কথোপকথন/দেখানো।"},
+{t:"Attribution model",s:"ফল কোন বিজ্ঞাপনের কৃতিত্ব তা ঠিক করার পদ্ধতি",
+a:"কোন কাজকে বিজ্ঞাপনের ফল ধরা হবে তা মাপার নিয়ম।",p:["স্ক্রিনশটে <b>Standard</b> সিলেক্ট করা। <b>Incremental</b> ধূসর (নিষ্ক্রিয়) ছিল।"],
+o:[["Standard","প্রায় সবার জন্য ডিফল্ট।","নির্দিষ্ট সময়সীমা ও engagement ধরন অনুযায়ী delivery অপ্টিমাইজ হয়, সহজ।","বিজ্ঞাপন ছাড়াও হতো এমন ফলও গোনা হতে পারে।"],["Incremental","যখন সত্যিকারের অতিরিক্ত ফল জানতে চান।","মডেল আন্দাজ করে কোন ফল বিজ্ঞাপনের কারণে হয়েছে।","সব সেটআপে পাওয়া যায় না, ফল বোঝা তুলনামূলক জটিল।"]],
+r:"শুরুতে <b>Standard</b>।",e:"",m:"Incremental না পেলে চিন্তার কিছু নেই, Standard-এই কাজ হয়।"},
+{t:"Cost per result goal",s:"প্রতি ফলের খরচের লক্ষ্য",
+a:"ফাঁকা রাখলে Meta পুরো বাজেট খরচ করে <b>highest volume</b> কৌশলে সবচেয়ে বেশি ফল আনার চেষ্টা করে। সংখ্যা বসালে সেটা গড় খরচের লক্ষ্য হয়।",p:["স্ক্রিনশটে ঘর ফাঁকা (X.XXX)।"],
+o:[["ফাঁকা রাখা","শুরুতে বা নতুন ডেটাহীন ক্যাম্পেইনে।","পুরো বাজেট খরচ, সর্বোচ্চ ফল।","প্রতি ফলের খরচ বাড়তে পারে।"],["লক্ষ্য সংখ্যা বসানো","খরচ নিয়ন্ত্রণে রাখতে চাইলে, ডেটা জমার পরে।","গড় খরচ কাছাকাছি রাখার চেষ্টা হয়।","খুব কম সংখ্যা দিলে delivery কমে ফল কম পড়ে, গ্যারান্টি নেই।"]],
+r:"শুরুতে <b>ফাঁকা</b>।",e:"",m:"এটা গড় লক্ষ্য, কঠোর সীমা নয়।"},
+{t:"Value rules",s:"মূল্য নিয়ম: কোন দর্শকের জন্য বেশি বা কম bid",
+a:"নির্দিষ্ট দর্শক বা placement বেশি মূল্যবান হলে সেখানে bid বাড়ান, কম মূল্যবান হলে কমান। <b>Create a rule set</b> থেকে শুরু।",
+p:["শুরুতে একটি পরিচিতি স্ক্রিন: <b>Get more of the outcomes you want</b>, <b>Optimize for all types of goals</b>, <b>See better results with a single ad set</b>।","বাধ্যতামূলক টিক: <b>I understand my overall cost per result may increase</b>, মানে মোট খরচ বাড়তে পারে। <b>Show later</b> চাপলে পরে করা যায়।","নিয়ম বানাতে <b>সর্বোচ্চ ২টি criteria</b> (Audience বা Placement)।","<b>Audience</b>-এর criteria: Age, Gender, Device platform (desktop/mobile), Mobile operating system (iOS/Android), Location (city, country, region/state, DMA, Comscore market), Audience labels।","<b>Placement</b>-এর criteria: Facebook Feed/Stories/Reels, Instagram Feed/Stories/Reels, Audience Network।","bid-এর শতাংশে Quick selections: <b>Default (50%), Moderate (100%), Significant (200%)</b>। Decrease-এ ছোট অপশনও আছে (যেমন Moderate 25%)।","<b>Add rule (সর্বোচ্চ 10টি)</b>: একাধিক rule যোগ করা যায়। প্রতিটির নাম Rule 2: Untitled rule, আর <b>Remove</b> দিয়ে মোছা যায়।","একজন মানুষ একাধিক rule-এর শর্ত মিলালে <b>শুধু তালিকার প্রথম প্রযোজ্য rule</b> কাজ করে। ক্রম বদলাতে <b>Change rule order</b>।","<b>Rule set name</b> (সর্বোচ্চ 50 অক্ষর): পরে অন্য ad set-এ আবার ব্যবহারের জন্য চেনার নাম। স্ক্রিনশটে নাম নিজে বসেছে Placement। শেষে <b>Create</b>।"],
+o:[["Increase bid by","যে দর্শক বেশি ক্রেতা আনে তাদের পেতে।","ভালো দর্শকের কাছে বেশি পৌঁছানো যায়।","মোট cost per result বাড়তে পারে।"],["Decrease bid by","কম ফল দেওয়া দর্শক/placement থেকে খরচ কমাতে।","দুর্বল অংশে অপচয় কমে।","কমালে ওই অংশে delivery কমে যায়।"]],
+r:"যথেষ্ট ডেটা জমার পরে, প্রমাণসহ। শুরুতেই ব্যবহার না করাই ভালো।",e:"Android ব্যবহারকারীর কেনাকাটা বেশি হলে Mobile operating system: Android-এ bid 50% বাড়ানো (Meta নিজের উদাহরণেও Android দিয়েছে)।",m:"বেশি rule দিলে বিজ্ঞাপন ঠিকভাবে শেখা কঠিন হয়, কম rule দিয়ে শুরু করুন।"},
+{t:"Dynamic creative",s:"স্বয়ংক্রিয় ক্রিয়েটিভ কম্বিনেশন",
+a:"আপনার ছবি/ভিডিও ও লেখা Meta নিজে মিলিয়ে দর্শকের পছন্দের কম্বিনেশন তৈরি করে। ডিফল্টে <b>Off</b>।",p:["On থাকা অবস্থায় Off করতে গেলে সতর্কবার্তা আসে: <b>Some creative assets will be deleted</b>। Continue দিলে প্রতিটি অংশের প্রথম asset (ছবি, headline ইত্যাদি) থাকে, বাকি সব asset মুছে যায় এবং কিছু বেমানান সেটিং বদলে বা মুছে যায়। পরে এই সেটিং বদলানো যায়।"],
+o:[["On","একাধিক ছবি/লেখা আছে, কোনটা ভালো বুঝতে চান।","সময় বাঁচে, ভালো কম্বিনেশন নিজে খুঁজে নেয়।","কোন উপাদান কাজ করল তা সবসময় পরিষ্কার বোঝা যায় না, নিয়ন্ত্রণ কম।"],["Off","একটি নির্দিষ্ট বিজ্ঞাপন ঠিক সেভাবে চালাতে চাইলে।","পূর্ণ নিয়ন্ত্রণ।","নিজে হাতে টেস্ট করতে হয়।"]],
+r:"নতুন হলে <b>Off</b> রেখে A/B test করুন, পরে চেষ্টা করুন।",e:"",m:"A/B test-এ একবারে একটি জিনিস বদলান, Dynamic creative-এ Meta অনেক কিছু একসাথে বদলায়।"},
+{t:"Audience definition",s:"দর্শকের আকার ও পরিসর",
+a:"ডান পাশের প্যানেলে দর্শক <b>Narrow</b> থেকে <b>Broad</b> স্কেলে কোথায় তা দেখায়। স্ক্রিনশটে <b>Broad</b>, আনুমানিক ২,০৬,০০,০০০ থেকে ২,৪৩,০০,০০০ মানুষ।",
+p:["প্যানেলে লেখা আছে, Broad দর্শক performance ও reach বাড়াতে পারে।","এই আনুমানিক সংখ্যায় <b>Advantage+ audience</b> ও <b>WhatsApp placements</b> ধরা হয় না, আর সময়ের সাথে অনেক বদলাতে পারে।"],
+o:[["Broad (বড়)","নতুন বা সাধারণ পণ্যে।","বেশি মানুষের কাছে, Meta ভালো দর্শক নিজে খুঁজে নেয়।","নির্দিষ্ট ক্রেতাকে কম টার্গেট করা যায়।"],["Narrow (ছোট)","খুব নির্দিষ্ট মানুষ (যেমন একটি এলাকা)।","সুনির্দিষ্ট দর্শক।","খুব ছোট হলে খরচ বাড়ে, ক্লান্তি তাড়াতাড়ি আসে।"]],
+r:"শুরুতে সাধারণত <b>Broad</b>।",e:"",m:"সংখ্যাটি অনুমান, নিশ্চিত নয়।"},
+{t:"Live video ad",s:"লাইভ ভিডিও বিজ্ঞাপন",
+a:"চালু করলে Meta লাইভ ভিডিওর জন্য সুপারিশ করা সেটিং ব্যবহার করে এবং বাজেট ও সময়সূচি বেশি কার্যকরভাবে সাজায়। ডিফল্টে <b>Off</b>।",
+p:["চালু করলে একটি পরামর্শ আসে: লাইভে যাওয়ার <b>অন্তত ৩ ঘণ্টা আগে</b> বিজ্ঞাপন তৈরি করুন, তাতে রিভিউয়ের সময় মেলে ও delivery দেরি কমে।"],
+o:[["Current live video","এখন চলছে এমন লাইভে মানুষ পাঠাতে।","তাৎক্ষণিক দর্শক পাওয়া যায়।","রিভিউয়ের সময় কম, delivery দেরি হতে পারে।"],["Upcoming live video","লাইভ শুরুর আগে বিজ্ঞাপন সাজাতে।","আগে থেকে রিভিউ হয়, লাইভে দর্শক জমা থাকে।","আগে থেকে পরিকল্পনা করতে হয়।"]],
+r:"সম্ভব হলে <b>Upcoming live video</b>, কমপক্ষে ৩ ঘণ্টা আগে।",e:"রাত ৮টায় লাইভ সেল হলে বিকেল ৫টার আগেই বিজ্ঞাপন তৈরি।",m:"লাইভ না করলে এই টগল Off রাখুন।"},
+{t:"Budget & schedule",s:"বাজেট ও সময়সূচি",
+a:"Campaign budget চালু থাকায় Meta ক্যাম্পেইনের দৈনিক $100 বাজেট ad set-গুলোর মধ্যে নিজে ভাগ করে। এখানে শুধু এই ad set-এর সীমা ও সময় ঠিক হয়।",
+p:["<b>Ad set spending limits</b>: <b>Set a minimum or maximum spend limit</b> টিক দিলে ড্রপডাউনে <b>Use % value</b> বা <b>Use $ value</b> বেছে নেওয়া যায়।","<b>Average daily minimum</b>: প্রতিদিন গড়ে এর কাছাকাছি খরচের চেষ্টা। <b>Average daily maximum</b>: গড়ে দিনে এর বেশি খরচ হবে না। সীমা এক সপ্তাহের গড়ে ধরা হয়।","<b>Schedule</b>: Start date ও সময় (স্ক্রিনশটে Nov 20, 2026, 12:03 AM, GMT+6)। <b>Set an end date</b> টিক দিলে শেষ তারিখ (mm/dd/yyyy) ও সময় দিতে হয়।","<b>Show/Hide more settings</b>: ভেতরে <b>Budget scheduling</b> দেখায়, যা Campaign level-এ দেওয়া বাড়তি বাজেট সময়কে বোঝায়।"],
+o:[["Spending limit সেট করা","একটি ad set-কে নির্দিষ্ট অংশের বেশি বা কম বাজেট দিতে চাইলে।","নির্দিষ্ট ad set-এ খরচ নিয়ন্ত্রণ।","Meta-র নিজে ভাগ করার স্বাধীনতা কমে, ফল কমতে পারে।"],["সেট না করা","বেশিরভাগ ক্ষেত্রে।","Meta সেরা ad set-এ বেশি খরচ করে।","একটি ad set বেশি খরচ খেয়ে ফেলতে পারে।"],["End date দেওয়া","নির্দিষ্ট সেল/ইভেন্টে।","সময় শেষে নিজে থেমে যায়।","ভুলে গেলে ভালো ফলের মাঝেও থেমে যায়।"],["End date না দেওয়া","চলমান বিজ্ঞাপনে।","বন্ধ না করা পর্যন্ত চলে।","বন্ধ করতে ভুলে গেলে খরচ চলতে থাকে।"]],
+r:"শুরুতে spending limit <b>না</b> দিন। সেল বা ইভেন্টে <b>End date</b> দিন।",e:"সেল ২০–২৫ নভেম্বর: Start 20 Nov, End 25 Nov।",m:"নতুন অবস্থায় Meta-কে বাজেট ভাগ করতে দেওয়াই নিরাপদ।"},
+{t:"Audience (Advantage+ on)",s:"দর্শক: নিয়ন্ত্রণ ও পরামর্শ",
+a:"কাদের কাছে বিজ্ঞাপন যাবে তা ঠিক হয়। <b>Controls</b> হলো আপনার কঠোর সীমা, আর <b>Suggest an audience</b> হলো Meta-র বাড়তি পরামর্শ।",
+p:["<b>Use a saved audience</b>: আগে সংরক্ষিত দর্শক বেছে নেওয়া।","<b>Controls</b>: Advantage+ চালু থাকলেও এই সীমার বাইরে পৌঁছাবে না। <b>No advertising settings set</b> ব্যাজ মানে কোনো বিশেষ বিজ্ঞাপন নিয়ম বাধ্যতামূলক নয়।","<b>Locations</b>: স্ক্রিনশটে বাংলাদেশের Dhaka Live, Uttara এবং একটি লাট-লং বিন্দু (+10 mi) দেওয়া।","<b>Minimum age</b>: 18। WhatsApp-এ অজানা বয়সের মানুষ ধরা হবে কি না তা আলাদা টিকে ঠিক হয়।","<b>Exclude these custom audiences</b>: None। <b>Languages</b>: All languages।","<b>Suggest an audience</b>: custom audience, age, gender ও detailed targeting-এর বাইরেও পারফরম্যান্স বাড়বে মনে হলে Meta পৌঁছাতে পারে।","<b>Further limit your audience</b> বাড়তি সীমা দেয়, <b>Save audience</b> এই দর্শক সংরক্ষণ করে।"],
+o:[["Suggest an audience চালু (Advantage+)","নতুন অবস্থায়, বেশি reach চাইলে।","Meta ভালো দর্শক নিজে খুঁজে বের করে, বেশি ফল।","আপনার ঠিক করা বয়স, লিঙ্গ ইত্যাদির বাইরেও যেতে পারে।"],["Further limit your audience","নির্দিষ্ট ক্রেতাদের মধ্যে সীমাবদ্ধ রাখতে।","নিয়ন্ত্রণ বেশি।","দর্শক ছোট হলে খরচ বাড়ে।"]],
+r:"শুরুতে <b>Advantage+ চালু</b>, তবে এলাকা ও মিনিমাম বয়স ঠিক রাখুন।",e:"শুধু ঢাকার দোকান: Locations ঢাকা, Minimum age 18।",m:"Controls কঠোর, Suggest একটি পরামর্শ।"},
+{t:"Locations",s:"লোকেশন: Include/Exclude, Browse, Map ও Drop pin",
+a:"কোথায় বিজ্ঞাপন দেখানো হবে বা হবে না তা ঠিক করে।",
+p:["<b>Include</b> ড্রপডাউনে <b>Include</b> ও <b>Exclude</b>।","<b>Search location</b> ও <b>Browse</b>: Browse-এ <b>Countries</b>, <b>Regions</b>, <b>Saved locations</b>।","মানচিত্রে বিন্দু ও বৃত্ত দেখা যায়, স্ক্রিনশটে Uttara, Dhaka + 1 mi। <b>Drop pin</b> দিয়ে নির্দিষ্ট জায়গা বসানো যায়।","<b>Add locations in bulk</b>: একসাথে অনেক জায়গা যোগ করা।"],
+o:[["Include","যেসব এলাকায় ক্রেতা আছে।","লক্ষ্য এলাকা পরিষ্কার।","এলাকা খুব ছোট হলে দর্শক কমে।"],["Exclude","যেসব এলাকায় ডেলিভারি নেই।","অপচয় কমে।","ভুল জায়গা বাদ পড়লে ক্রেতা হারান।"],["Drop pin + radius (বৃত্ত)","দোকানের আশেপাশে স্থানীয় ক্রেতা।","খুব নির্দিষ্ট এলাকা।","বৃত্ত ছোট হলে reach কম, দূরত্ব মাইলে দেখায়।"]],
+r:"ডেলিভারি এলাকা অনুযায়ী <b>Include</b>, ডেলিভারি না দেওয়া এলাকায় <b>Exclude</b>।",e:"ঢাকায় ডেলিভারি: Dhaka Division Include।",m:"1 mile ≈ ১.৬ কিমি।"},
+{t:"Add locations in bulk",s:"একসাথে অনেক লোকেশন যোগ",
+a:"একই ধরনের অনেক লোকেশন একসাথে টাইপ বা পেস্ট করা যায়, আলাদা লাইনে বা কমা/সেমিকোলন দিয়ে। শেষে <b>Match locations</b>।",
+p:["<b>একসাথে শুধু একটি ধরন</b> যোগ করা যায় (যেমন শুধু countries)।","<b>Location type</b>: Countries, Regions or states, Cities, Counties, Postal codes, Addresses, Comscore Market।","উদাহরণ: Countries (United States, Singapore, Canada), Regions or states (Washington, New York, New Jersey)।","<b>Addresses</b>-এ <b>Default radius</b>: 1, 3, 5, 10, 15, 25, 30, 40, 50 mi। <b>Comscore Market</b>-এ Format type: <b>name</b> বা <b>code</b>।"],
+o:[["Countries / Regions / Cities","বড় এলাকায় লক্ষ্য।","দ্রুত যোগ করা যায়।","শহর-ভিত্তিক হলে ঠিক বানান লাগে।"],["Postal codes / Addresses","খুব নির্দিষ্ট এলাকা।","সুনির্দিষ্ট।","অনেক ঠিকানা মেলাতে সময় লাগে।"],["Counties / Comscore Market","এগুলোর উদাহরণ আমেরিকান, তাই সম্ভবত যুক্তরাষ্ট্রের জন্য।","আমেরিকায় বাজার-ভিত্তিক টার্গেটিং।","বাংলাদেশে কাজে আসার সম্ভাবনা কম।"]],
+r:"বাংলাদেশে সাধারণত <b>Regions/Cities</b> বা Addresses + radius।",e:"Dhaka, Chattogram, Sylhet কমা দিয়ে Cities-এ।",m:"তালিকায় নিচ থেকে নাম না মিললে Match locations সতর্কবার্তা দেখায়।"},
+{t:"Minimum age",s:"সর্বনিম্ন বয়স (Controls)",
+a:"যে বয়সের নিচে কাউকে বিজ্ঞাপন দেখানো হবে না তা ঠিক করে। এটা <b>কঠোর নিয়ন্ত্রণ</b>, Advantage+ চালু থাকলেও মানা হয়।",
+p:["ড্রপডাউনে বয়স (স্ক্রিনশটে 18)।","<b>Include people of unknown age on WhatsApp</b> টিক: WhatsApp-এ যাদের বয়স জানা নেই তাদেরও ধরা হয়। এতে WhatsApp দর্শক অনেক বাড়তে পারে, তবে বয়স-সীমিত পণ্য বা সেবার বিজ্ঞাপন এদের দেখানো হবে না।"],
+o:[["টিক দেওয়া (Included)","বেশি reach চাইলে।","WhatsApp দর্শক বেশি।","বয়স অজানা মানুষও আসে।"],["টিক না দেওয়া (Excluded)","নিশ্চিত বয়সের মানুষ চাইলে।","দর্শক পরিষ্কার।","WhatsApp reach কমে।"]],
+r:"সাধারণ পণ্যে টিক রেখে দিন। বয়স-সীমিত পণ্যে কঠোর থাকুন।",e:"মেকআপের দোকান: Minimum age 18।",m:"এটা Controls-এর বয়স, নিচে Suggestions-এও আলাদা Age আছে (শেষের তুলনা ড্রপডাউনে দেখুন)।"},
+{t:"Exclude custom audiences & Languages",s:"কাদের বাদ দেবেন ও ভাষা",
+a:"<b>Exclude these custom audiences</b>: আগে বানানো কোনো দর্শককে এই বিজ্ঞাপন থেকে বাদ দেয় (<b>Search existing audiences</b> দিয়ে খুঁজুন)। <b>Languages</b>: শুধু তখন দিন যখন নির্বাচিত লোকেশনে সাধারণ নয় এমন ভাষার মানুষ চান।",
+p:["Languages-এ <b>Search languages</b> বক্সে ভাষা খুঁজে দেওয়া যায়। ডিফল্ট <b>All languages</b>।"],
+o:[["Exclude custom audiences","নতুন গ্রাহক খুঁজতে চাইলে পুরোনো ক্রেতাকে বাদ দিতে।","পুরোনো ক্রেতার পেছনে খরচ বাঁচে।","দর্শক ছোট হয়, আবার বিক্রির জন্য তাদেরও দরকার হলে বাদ দেওয়া ভুল।"],["Languages দেওয়া","যেমন ঢাকায় ইংরেজিভাষী প্রবাসী বা বিদেশি টার্গেট।","ভাষাভিত্তিক সুনির্দিষ্ট দর্শক।","অকারণে দিলে reach কমে।"],["Languages ফাঁকা (All languages)","সাধারণ অবস্থায়।","সহজ, সীমাবদ্ধতা নেই।","ভাষার মিল নিশ্চিত নয়।"]],
+r:"Languages <b>ফাঁকা</b> রাখুন, বিশেষ কারণ থাকলে তবেই দিন।",e:"বাংলাদেশে বাংলাভাষীদের বিজ্ঞাপনে Languages দেওয়ার দরকার নেই।",m:"Meta নিজেই বলছে, বিশেষ প্রয়োজন ছাড়া ভাষা দেবেন না।"},
+{t:"Suggest an audience (Include custom audiences, Age, Gender)",s:"দর্শক পরামর্শ: Show settings",
+a:"Meta-কে আপনার <b>পরামর্শ</b> দেওয়া, কঠোর সীমা নয়। বিজ্ঞাপনের ফল বাড়বে মনে হলে Meta এই সীমার বাইরেও পৌঁছাতে পারে।",
+p:["<b>Show settings</b> চাপলে খোলে: <b>Include these custom audiences</b> (None), <b>Age</b> (18 - 65+), <b>Gender</b> (All / Men / Women), <b>Detailed targeting</b> (All demographics, interests and behaviors)।","<b>Include these custom audiences</b>: আগে বানানো দর্শক পরামর্শ হিসেবে যোগ।"],
+o:[["Gender: All","সব লিঙ্গের পণ্যে।","বেশি দর্শক, Meta ভালোটা বেছে নেয়।","নির্দিষ্ট লিঙ্গে মনোযোগ কম।"],["Gender: Men / Women","পণ্য নির্দিষ্ট লিঙ্গের হলে।","প্রাসঙ্গিক দর্শক।","দর্শক ছোট হয়, আর এটা পরামর্শ বলে Meta অন্যদেরও দেখাতে পারে।"],["Age (18 - 65+) সংকীর্ণ করা","পণ্য নির্দিষ্ট বয়সের হলে।","প্রাসঙ্গিক মানুষ বেশি।","সংকীর্ণ করলে reach কমে।"]],
+r:"শুরুতে সব <b>ডিফল্টে</b> রাখুন, ডেটা জমলে সীমা টানুন।",e:"শিশুদের জুতা: Suggestion-এ Age 25–45।",m:"কঠোর সীমা চাইলে Controls-এ দিন, এখানে নয়।"},
+{t:"Detailed targeting",s:"আগ্রহ, আচরণ ও জনসংখ্যা দিয়ে টার্গেট",
+a:"<b>Include people who match</b> বক্সে নির্দিষ্ট জনসংখ্যা, আগ্রহ বা আচরণ যোগ করে দর্শক নির্দিষ্ট করা যায়। সার্চ করুন বা <b>Browse</b> চাপুন।",
+p:["<b>Demographics</b>: Education, Financial, Life events, Parents, Relationship, Work।","<b>Interests</b>: Business and industry, Entertainment (leisure), Family and relationships, Fitness and wellness, Food and drink, Hobbies and activities, Shopping and fashion, Sports and outdoors, Technology।","<b>Behaviors</b> (স্ক্রিনশটে যা দেখা গেছে): Anniversary, Mobile Device User, Consumer Classification, Digital Activities, Expats, Mobile Device User/Device Use Time, More Categories, Purchase behavior, Soccer, Travel।","প্রতিটি ক্যাটাগরির পাশে <b>Select all</b> আছে, একসাথে সব উপ-অপশন বাছা যায়। ডান পাশের i আইকনে ব্যাখ্যা দেখা যায়।"],
+o:[["Demographics","জীবনের পর্যায় বা পেশা দিয়ে (যেমন নতুন বিবাহিত, পিতা-মাতা)।","পণ্যের সাথে মিল বেশি।","দর্শক ছোট হয়।"],["Interests","মানুষের আগ্রহ (যেমন ফ্যাশন, ফিটনেস)।","সহজে প্রাসঙ্গিক মানুষ।","আগ্রহ থাকলেই কেনে না।"],["Behaviors","কেনাকাটা বা ডিভাইস আচরণ দিয়ে।","কেনার সম্ভাবনা বেশি এমন মানুষ।","অপশন সব দেশে সমান নাও থাকতে পারে।"]],
+r:"নতুন অবস্থায় <b>ফাঁকা (All)</b> রেখে Meta-কে শিখতে দিন। ছোট পণ্যে একটি Interest।",e:"ফিটনেস সামগ্রী: Interests → Fitness and wellness।",m:"এখানকার সব অপশন আপনার একাউন্ট ও দেশের ওপর নির্ভর করে, তাই অন্যের তালিকার সাথে অমিল হতে পারে।"},
+{t:"Reach the right audiences (Further limit your audience)",s:"তিন ধরনের দর্শক সেটআপ",
+a:"আপনার ব্যবসা কিছু দর্শককে বেশি মূল্য দিলে তিনটি পথের একটি বেছে নেওয়ার ডায়ালগ। শেষে <b>Continue</b> বা <b>Cancel</b>।",p:["স্ক্রিনশটে এটা Detailed targeting-এর পরে খুলেছে, সম্ভবত Further limit your audience চাপার পর।"],
+o:[["Reach a broad audience (current setup)","ডিফল্ট ও সবচেয়ে সাধারণ।","পরামর্শ দিয়ে আগে কাদের কাছে পৌঁছাবে বলুন, Meta ফল বাড়লে অন্যদেরও দেখায়।","কাকে দেখাচ্ছে তার ওপর কম নিয়ন্ত্রণ।"],["Reach your preferred audiences by applying value rules","কিছু দর্শক বেশি মূল্যবান হলে।","Bid বাড়িয়ে পছন্দের দর্শককে অগ্রাধিকার।","মোট cost per result বাড়তে পারে।"],["Reach a limited audience","আইনি, ভৌগোলিক বা ব্যবসায়িক সীমাবদ্ধতা থাকলে।","কারা দেখবে তা কঠোরভাবে সীমিত।","reach কম, খরচ বাড়ে, Advantage+ সুবিধা কমে।"]],
+r:"শুরুতে <b>Broad (current setup)</b>। শুধু বাধ্যবাধকতা থাকলে Limited।",e:"শুধু ঢাকায় ডেলিভারি দেওয়া দোকান: Limited audience-এ ঢাকা।",m:"এটাই Controls বনাম Suggestions-এর বড় সিদ্ধান্ত।"},
+{t:"Save audience",s:"দর্শক সংরক্ষণ",
+a:"আপনার বানানো দর্শক সেটিং একটি নামে সংরক্ষণ করে পরে আবার ব্যবহার করা যায় (পরে <b>Use a saved audience</b> থেকে)।",
+p:["<b>Audience name</b> দিতে হয়।","ডায়ালগে দেখায়: <b>Controls</b> (Locations, Minimum age) এবং <b>Suggestions</b> (Age)। শেষে <b>Save</b> বা <b>Cancel</b>।"],
+o:[["Save করা","একই দর্শক বারবার ব্যবহার করলে।","সময় বাঁচে, একই সেটিং মেলে।","পুরোনো সেভ করা দর্শক ভুলে গেলে ভুল টার্গেট হতে পারে।"],["Save না করা","একবারের ক্যাম্পেইনে।","জটিলতা কম।","পরে আবার সব সেট করতে হয়।"]],
+r:"নাম স্পষ্ট দিন, যেমন <b>Dhaka_18+_General</b>।",e:"",m:"নাম এমন দিন যাতে পরে দেখেই বোঝা যায়।"},
+{t:"Ad transparency",s:"বিজ্ঞাপনদাতার স্বচ্ছতা ও যাচাই",
+a:"বিজ্ঞাপনদাতা ও টাকা প্রদানকারীর নাম, অবস্থান ও তথ্য জনসমক্ষে (Meta Ad Library-তে) দেখানোর বিষয়, বিজ্ঞাপন চলাকালীন (কিছু ক্ষেত্রে আরও বেশি সময়)।",
+p:["<b>Verify who is behind your ads before it is required</b>: প্রয়োজন হওয়ার আগেই যাচাই করলে বিজ্ঞাপন কখনও থামবে না। এটা বিনামূল্যে, কয়েক মিনিট লাগে। <b>Verify now</b> বাটন।"],
+o:[["এখনই Verify করা","বিজ্ঞাপন চালানো নিয়মিত হলে।","পরে হঠাৎ বিজ্ঞাপন থামার ঝুঁকি কমে।","কিছু সময় ও তথ্য দিতে হয়।"],["পরে করা","একবারের ছোট পরীক্ষায়।","এখন সময় বাঁচে।","দরকার পড়লে হঠাৎ বিজ্ঞাপন থামতে পারে।"]],
+r:"নিয়মিত চালালে <b>এখনই Verify করুন</b>।",e:"",m:"আপনার তথ্য Ad Library-তে প্রকাশ্য হতে পারে, সেটা মাথায় রাখুন।"},
+{t:"Placements (Advantage+ on)",s:"বিজ্ঞাপন কোথায় দেখাবে",
+a:"<b>Advantage+ on</b> থাকলে Meta মানুষ সাড়া দেওয়ার সম্ভাবনা বেশি এমন জায়গায় নিজে থেকে বিজ্ঞাপন দেখায়।",
+p:["<b>WhatsApp Status included</b>: নতুন দর্শকের জন্য WhatsApp Status যোগ হয়েছে। Status মানে WhatsApp Updates ট্যাবের উল্লম্ব ছবি/ভিডিও, যা ২৪ ঘণ্টা পরে মিলিয়ে যায়। X চাপলে বার্তা বন্ধ হয়।","<b>Account controls</b>: ad account-এর সব ক্যাম্পেইনে কোথায় বিজ্ঞাপন আসবে তা সীমিত করে। <b>Excluded placements: None</b>। <b>Edit placement controls</b> দিয়ে বদলানো।","<b>Show more settings</b> চাপলে Devices and operating systems, Platforms, Placements তালিকা ও Brand safety অংশ খোলে (নিচে আলাদা ড্রপডাউনে)।"],
+o:[["Advantage+ placements (স্বয়ংক্রিয়)","নতুন বা সাধারণ ক্যাম্পেইনে।","বেশি জায়গা, সস্তা ফল, Meta সেরাটা বেছে নেয়।","কম কার্যকর জায়গাতেও কিছু খরচ হতে পারে।"],["Account controls দিয়ে বাদ দেওয়া","নির্দিষ্ট জায়গায় ব্র্যান্ডের জন্য ক্ষতিকর হলে।","অপছন্দের জায়গা এড়ানো যায়।","সব ক্যাম্পেইনে প্রযোজ্য হয়, ফলে reach কমে।"]],
+r:"শুরুতে <b>Advantage+ চালু</b>। কোনো জায়গায় সমস্যা দেখলে তবেই Exclude।",e:"WhatsApp Status-এ ব্র্যান্ড ছবি মানায় না মনে হলে Account controls-এ বাদ।",m:"Account controls পুরো একাউন্টে কাজ করে, শুধু এই ad set-এ নয়।"},
+{t:"Placement value rules",s:"কোন জায়গায় বেশি বা কম bid",
+a:"কোন placement বেশি মূল্যবান তা Meta-কে জানিয়ে সেখানে bid বাড়ান বা কমান। <b>Create a rule set</b> থেকে শুরু। প্রথমে একই ধরনের পরিচিতি স্ক্রিন আসে (cost per result বাড়তে পারে, এই টিক দিতে হয়)।",
+p:["ডায়ালগের ব্যাখ্যা: certain audiences, placements ও conversion locations কতটা মূল্যবান তা জানানো।","<b>Select placement</b> (টিক বক্সে একাধিক বাছা যায়): Facebook Feed/Stories/Reels, Instagram Feed/Stories/Reels, Audience Network।","<b>Increase bid by / Decrease bid by</b> এবং শতাংশ (ডিফল্ট 50%)। <b>Add criteria</b> দিয়ে আরেকটি শর্ত।","<b>Add rule (2/10)</b>: একাধিক rule। একজন মানুষ একাধিক rule মেলালে <b>শুধু প্রথম প্রযোজ্য rule</b> কাজ করে, ক্রম বদলাতে <b>Change rule order</b>। শেষে <b>Rule set name</b> ও <b>Create</b>।"],
+o:[["Increase bid by (বাড়ানো)","যে placement থেকে ফল ভালো আসে।","ভালো জায়গায় বেশি পৌঁছানো।","খরচ বাড়ে।"],["Decrease bid by (কমানো)","যে placement থেকে ফল দুর্বল।","অপচয় কমে।","ওই জায়গায় delivery কমে যায়।"]],
+r:"কমপক্ষে কয়েক দিনের ডেটা দেখে rule দিন। একসাথে কম rule রাখুন।",e:"Instagram Reels থেকে সস্তা ক্লিক এলে Instagram Reels-এ bid 50% বাড়ানো।",m:"শুরুতেই না দিয়ে ডেটা দেখে সিদ্ধান্ত নিন।"},
+{t:"একই নামের অপশনগুলোর পার্থক্য",s:"যেগুলো দেখতে এক, কাজে আলাদা",
+a:"পেজের বিভিন্ন জায়গায় একই নামের অপশন আছে, কিন্তু কাজ আলাদা। নিচে পরিষ্কার পার্থক্য।",p:["<b>সূত্র:</b> Controls = কঠোর সীমা (Advantage+ চালু থাকলেও মানা হয়), Suggestions = শুধু পরামর্শ (Meta প্রয়োজনে ছাড়িয়ে যায়)।"],
+o:[["Minimum age vs Age (18 - 65+)","Minimum age Controls-এ, Age Suggestions-এ।","Minimum age কঠোর, কেউ এর নিচে পড়বে না।","Age শুধু পরামর্শ, এর বাইরেও দেখাতে পারে।"],["Exclude custom audiences vs Include custom audiences","Exclude Controls-এ, Include Suggestions-এ।","Exclude কঠোরভাবে বাদ দেয়।","Include শুধু পরামর্শ, কঠোরভাবে সীমিত করে না।"],["Value rules (Performance goal-এর নিচে) vs Placement value rules","প্রথমটিতে Audience বা Placement শর্ত (সর্বোচ্চ ২টি), দ্বিতীয়টি placement-কেন্দ্রিক প্রবেশপথ।","দুটোই bid বাড়ায়/কমায়, নিয়ম একই।","একই লক্ষ্যে দুটি আলাদা জায়গায় rule বানালে গুলিয়ে যেতে পারে।"],["Placement: Account controls vs Placement value rules vs Advantage+ placements","Account controls = বাদ দেওয়া (পুরো একাউন্ট), value rules = bid বাড়ানো/কমানো, Advantage+ = Meta-র স্বয়ংক্রিয় বাছাই।","তিনটি স্তরে নিয়ন্ত্রণ করা যায়।","কোনটি কী করে না জানলে ভুল সেটিং হয়।"],["Further limit your audience vs Reach a limited audience","দুটোই কঠোর সীমা টানার পথ।","একই কাজ, আলাদা বার্তা।","বেশি সীমা দিলে reach কমে।"]],
+r:"কঠোর সীমা দরকার হলে <b>Controls</b>, ছাড় দিতে চাইলে <b>Suggestions</b>।",e:"",m:"অনিশ্চিত হলে Meta-র ডিফল্ট রেখে ফল দেখুন।"},
+{t:"Placement controls for this ad account",s:"Edit placement controls (অ্যাকাউন্ট-স্তরের সীমা)",
+a:"এই নিয়ন্ত্রণ ad account-এর <b>সব ক্যাম্পেইনে</b> কিছু placement বাদ দেয়। শুধু এই ad set-এ নয়।",
+p:["ডায়ালগের সতর্কতা: অকারণ performance-এর ক্ষতি এড়াতে শুধু ব্যবসার জন্য সত্যিই দরকার হলে বাদ দিন।","<b>My business can only advertise on specific placements</b> টগল (ডিফল্টে Off): চালু করলে নির্দিষ্ট placement-এ সীমাবদ্ধ থাকতে হয়। শেষে <b>Review changes</b> বা <b>Cancel</b>।","<b>See account controls in Advertising settings</b> লিংকে Advertising settings-এ গিয়ে দেখা যায়।"],
+o:[["Off (ডিফল্ট)","বেশিরভাগ ব্যবসায়।","সব placement খোলা, Meta সেরা জায়গা খুঁজে নেয়।","ব্র্যান্ডের জন্য অনুপযোগী জায়গাতেও দেখা যেতে পারে।"],["On (নির্দিষ্ট placement-এ সীমিত)","আইনি বা ব্র্যান্ড নিয়মে কিছু জায়গা নিষিদ্ধ হলে।","নিয়ম মানা সহজ।","সব ক্যাম্পেইনে প্রযোজ্য, reach কমে ও খরচ বাড়তে পারে।"]],
+r:"বিশেষ বাধ্যবাধকতা না থাকলে <b>Off</b>।",e:"",m:"এটা একাউন্টের সব ক্যাম্পেইনে কাজ করে, তাই বদলানোর আগে ভেবে নিন।"},
+{t:"Devices and operating systems & Platforms",s:"কোন ডিভাইস ও প্ল্যাটফর্মে দেখাবে",
+a:"বিজ্ঞাপন কোন ডিভাইস ও অপারেটিং সিস্টেমে দেখাবে তা ঠিক করে। স্ক্রিনশটে ডিফল্ট <b>All devices (recommended)</b>, আর <b>Platforms: All</b>।",
+p:["প্রথম ড্রপডাউনে চেকবক্স: <b>Mobile</b> ও <b>Desktop</b>।","দ্বিতীয় ড্রপডাউন: <b>All mobile devices</b>, <b>Android devices only</b>, <b>iOS devices only</b>, <b>Feature phones only</b> (স্ক্রিনশটে ধূসর, অর্থাৎ বাছা যায়নি)।","<b>Only when connected to Wi-Fi</b> টিক: শুধু Wi-Fi সংযুক্ত থাকলে বিজ্ঞাপন দেখাবে।"],
+o:[["All devices (recommended)","সাধারণ অবস্থায়।","Meta সব ডিভাইসে সেরা ফল খুঁজে নেয়।","কোনো ডিভাইসে ফল খারাপ হলেও খরচ হতে পারে।"],["Mobile only / Desktop only","আপনার সাইট বা অ্যাপ নির্দিষ্ট ডিভাইসে ভালো কাজ করলে।","প্রাসঙ্গিক ডিভাইসে মনোযোগ।","reach কমে, খরচ বাড়তে পারে।"],["Android only / iOS only","অ্যাপ শুধু একটি OS-এ থাকলে বা ক্রেতা একটি OS-এ বেশি হলে।","নির্দিষ্ট OS-এ কেন্দ্রীভূত।","অন্য OS-এর ক্রেতা হারান।"],["Only when connected to Wi-Fi","ভারী ভিডিও বিজ্ঞাপন, যা ডেটা খরচ ছাড়া দেখা ভালো।","ভিডিও ভালোভাবে চলে।","মোবাইল ডেটার ব্যবহারকারী বাদ পড়ে, reach অনেক কমে।"]],
+r:"শুরুতে <b>All devices</b>। Wi-Fi টিক সাধারণত দেবেন না।",e:"শুধু অ্যান্ড্রয়েড অ্যাপ: Android devices only।",m:"Detailed targeting-এর Mobile Device User আচরণ আর এই ডিভাইস সেটিং ভিন্ন জিনিস।"},
+{t:"Placements (Feeds, Stories, In-stream, Search, Apps)",s:"কোন জায়গায় বিজ্ঞাপন চলবে (বিস্তারিত তালিকা)",
+a:"Advantage+ placements-এ Meta জায়গা বাছে। এখানে আপনি নিজে প্রতিটি জায়গা টিক দিয়ে বা তুলে নিয়ন্ত্রণ করতে পারেন (সাধারণত তুললে ম্যানুয়াল placement হয়)। ডান পাশে বিজ্ঞাপনের প্রিভিউ দেখা যায়।",
+p:["<b>Feeds</b>: Facebook Feed, Facebook profile feed, Instagram feed, Instagram profile feed, Facebook Marketplace, Facebook right column, Instagram Explore home, Facebook Business Explore (স্ক্রিনশটে ধূসর, টিক নেই), Threads feed, Facebook Notifications।","<b>Stories, Status, Reels</b>: Instagram Stories, Facebook Stories, Instagram Reels, Facebook Reels, WhatsApp Status।","<b>In-stream</b>: Facebook reel in-stream, Facebook reel overlay।","<b>Search results</b>: Facebook search results, Instagram search results।","<b>Apps and sites</b>: Audience Network native, banner and interstitial, এবং Audience Network rewarded videos।","প্রতিটি গ্রুপের পাশে মূল টিক দিলে ভেতরের সবগুলো একসাথে চালু বা বন্ধ হয়। বাঁ পাশের তীরে ভেতরের তালিকা খোলে।"],
+o:[["Feeds","সাধারণ প্রচারে।","বেশি দৃশ্যমানতা।","অনেক প্রতিযোগিতা।"],["Stories, Status, Reels","উল্লম্ব (9:16) ছবি/ভিডিও থাকলে।","সম্পূর্ণ পর্দার আকর্ষণীয় অভিজ্ঞতা।","উল্লম্ব ক্রিয়েটিভ না থাকলে কেটে খারাপ দেখায়।"],["In-stream","ভিডিও বিজ্ঞাপনে।","রিলের আগে/মাঝে/পরে পৌঁছানো যায়।","মানুষ এড়িয়ে যেতে পারে (Skippable ads Included দেখা গেছে)।"],["Search results","কেউ কিছু খুঁজলে তার কাছে।","খোঁজার আগ্রহ থাকা মানুষ।","সুযোগ সীমিত।"],["Apps and sites (Audience Network)","সস্তায় বেশি reach চাইলে।","reach বাড়ে, খরচ কম হতে পারে।","মান ও ব্র্যান্ড-নিরাপত্তা কম হতে পারে, অনিচ্ছাকৃত ক্লিকের সম্ভাবনা।"],["Facebook Marketplace / right column","কেনার আগ্রহ আছে এমন জায়গায়।","ক্রেতা-মানসিকতার মানুষ।","ব্র্যান্ড প্রচারে বেমানান, right column ছোট ও কম নজরকাড়া।"]],
+r:"শুরুতে সব <b>চালু (Advantage+)</b>। ডেটা দেখে যে জায়গায় খরচ অপচয় হচ্ছে সেটা বাদ দিন।",e:"শুধু উল্লম্ব ভিডিও থাকলে Feeds-এ ছবি/ভিডিওর মাপ ঠিক করে নিন, নয়তো Reels/Stories-এ ফোকাস।",m:"Facebook Business Explore ধূসর ছিল, সম্ভবত আপনার সেটআপে অনুপলব্ধ।"},
+{t:"Skippable ads & Brand safety and suitability",s:"ব্র্যান্ড নিরাপত্তা ও inventory filter",
+a:"<b>Skippable ads: Included</b> মানে এড়িয়ে যাওয়া যায় এমন বিজ্ঞাপনও চলবে। <b>Brand safety</b> Meta সব বিজ্ঞাপনে নিজেই প্রয়োগ করে (Community Standards ও Monetization Policies মেনে আপত্তিকর কনটেন্ট থেকে দূরে রাখে)। <b>Brand suitability</b> আপনার নিজের নিয়ন্ত্রণ, তাতে reach কমে ও খরচ বাড়তে পারে।",
+p:["<b>Inventory filters</b>: ডিফল্ট ফিল্টার প্রয়োগ হয়। অতিরিক্ত বিতর্কিত বা আপত্তিকর কনটেন্ট আপনি যা-ই বাছুন সবসময় বাদ।","<b>In-content ads</b> ফিল্টার শুধু <b>Facebook reel in-stream</b> ও <b>Facebook reel overlay</b>-এর জন্য।","<b>Audience Network ads</b> ফিল্টার শুধু <b>Audience Network</b>-এর জন্য। দুটির তিনটি স্তর একই।"],
+o:[["Expanded inventory (default)","সাধারণ অবস্থায়।","Monetization Policies মানা সব কনটেন্টে দেখায়, reach সর্বোচ্চ।","সংবেদনশীল পাশের কনটেন্ট কিছুটা আসতে পারে।"],["Moderate inventory","অতি সংবেদনশীল কনটেন্ট এড়াতে চাইলে।","ব্র্যান্ডের জন্য নিরাপদ।","reach কমে, খরচ বাড়তে পারে।"],["Limited inventory","ব্র্যান্ড-সংবেদনশীল ক্ষেত্রে (যেমন শিশুদের পণ্য)।","সবচেয়ে নিরাপদ পরিবেশ।","reach সবচেয়ে কমে, খরচ সবচেয়ে বেশি বাড়তে পারে।"]],
+r:"শুরুতে <b>Expanded (default)</b>। ব্র্যান্ড-সংবেদনশীল হলে Moderate বা Limited।",e:"শিশুখাদ্যের ব্র্যান্ড: Moderate বা Limited।",m:"প্রতিটি ফিল্টারের পাশে See examples of excluded content লিংক আছে, দেখে নিন।"},
+{t:"Publisher block lists, Content type exclusions, Topic exclusions",s:"নির্দিষ্ট প্রকাশক, কনটেন্ট ও বিষয় বাদ",
+a:"ব্র্যান্ডের জন্য অনুপযুক্ত প্রকাশক, কনটেন্ট ধরন ও বিষয় বাদ দেওয়ার তিনটি আলাদা নিয়ন্ত্রণ। তিনটিই ডিফল্টে <b>None selected</b>।",
+p:["<b>Publisher block lists</b>: আপনার কোনো তালিকা না থাকলে বার্তা আসে। <b>Create a publisher block list</b> দিয়ে নিজের তালিকা বানানো যায়।","<b>Content type exclusions</b> (শুধু Facebook reel in-stream ও overlay): <b>Exclude live videos</b> (Facebook reel in-stream ads), এবং <b>Exclude nonpartner-publishers</b> (স্ক্রিনশটে ধূসর)।","ধূসর অপশনে ইঙ্গিত: <b>Only available for ad accounts</b>, মানে এই সেটিং ad account-এ প্রয়োগ হয়, আলাদা ad set-এ বদলানো যায় না। বদলাতে <b>Change in Brand Safety and Suitability</b> লিংক।","<b>Topic exclusions</b>: নির্দিষ্ট বিষয় বাদ দেওয়া।"],
+o:[["Publisher block lists","জানা অবাঞ্ছিত প্রকাশক থাকলে।","নির্দিষ্ট প্রকাশক বন্ধ।","তালিকা বানাতে হয়, reach কমে।"],["Exclude live videos","লাইভের পাশে বিজ্ঞাপন চান না।","অপ্রত্যাশিত লাইভ কনটেন্টের ঝুঁকি কমে।","reach কমে।"],["Topic exclusions","নির্দিষ্ট বিষয় (যেমন রাজনীতি) এড়াতে।","ব্র্যান্ডের সাথে বিষয়ের অমিল কমে।","বেশি বাদ দিলে reach কমে ও খরচ বাড়ে।"]],
+r:"নিরাপত্তা নিয়ে বিশেষ উদ্বেগ থাকলে তবেই ব্যবহার করুন।",e:"",m:"এগুলো reach কমায়, তাই কম বাদ দিয়ে শুরু করুন।"},
+{t:"আরও কিছু একই নামের পার্থক্য",s:"Placement, Mobile ও Filter",
+a:"নতুন অংশেও কিছু অপশন দেখতে একরকম, কিন্তু কাজ আলাদা।",p:[],
+o:[["Account controls (Placements) vs Placement checkboxes","Account controls সব ক্যাম্পেইনে, checkbox শুধু এই ad set-এ।","দুই স্তরে নিয়ন্ত্রণ।","গুলিয়ে ফেললে ভুল বাদ পড়তে পারে।"],["Mobile (Devices) vs Mobile Device User (Behaviors)","Devices = বিজ্ঞাপন কোন ডিভাইসে দেখাবে, Behaviors = আচরণভিত্তিক দর্শক বাছাই।","আলাদা কাজ, একসাথে ব্যবহার করা যায়।","একই ভাবলে ভুল সেটিং হয়।"],["In-content ads vs Audience Network ads filter","আলাদা placement-এর জন্য আলাদা ফিল্টার।","প্রতিটির নিরাপত্তা আলাদা ঠিক করা যায়।","একটিতে Limited দিলে অন্যটিতেও দিতে হবে ভাবা ভুল।"]],
+r:"",e:"",m:"পরিষ্কার না হলে ডিফল্ট রাখুন।"}
+];
+R(D);
+document.querySelectorAll(".lv span[data-t]").forEach(b=>b.onclick=()=>{document.querySelectorAll(".lv span").forEach(x=>x.classList.remove("on"));b.classList.add("on");R(b.dataset.t==="3"?D3:b.dataset.t==="2"?D2:D);window.scrollTo(0,0)});
+</script></body></html>
